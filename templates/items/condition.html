@@ -1,0 +1,49 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <div class="flexrow">
+                {{#if isMove}}
+                <div class="resource">
+                    <label>{{localize "SIMPLE.Rating"}}</label>
+                    <select class="select-rating" name="data.rating" data-type="String">
+                        {{#select data.rating}}
+                        {{#each ratings as |rating|}}
+                        <option value="{{rating}}">{{localize (concat "SIMPLE." rating)}}</option>
+                        {{/each}}
+                        <option value="">({{localize "SIMPLE.None"}})</option>
+                        {{/select}}
+                    </select>
+                </div>
+                {{else}}
+                <div class="resource flex2">
+                    <label>{{localize "SIMPLE.Tags"}}</label>
+                    <input type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
+                </div>
+                <div class="resource flex1">
+                    <label>{{localize "SIMPLE.Quantity"}}</label>
+                    <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </header>
+
+    {{!-- TODO: Check out https://gitlab.com/foundrynet/dnd5e/-/blob/master/templates/items/weapon.html --}}
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">
+            {{localize "SIMPLE.Description"}}
+        </a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="tab-content">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

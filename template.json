@@ -1,0 +1,105 @@
+{
+  "Actor": {
+    "types": ["hunter", "bystander", "location", "minion", "monster"],
+    "templates": {
+      "common": {
+        "background": "",
+        "type": ""
+      },
+      "creature": {
+        "harm": {
+          "value": 0,
+          "min": 0,
+          "max": 5
+        },
+        "unstable": false
+      }
+    },
+    "hunter": {
+      "templates": ["common", "creature"],
+      "luck": {
+        "value": 3,
+        "min": 0,
+        "max": 7
+      },
+      "experience": {
+        "value": 0,
+        "min": 0,
+        "max": 4
+      },
+      "level": 0,
+      "ratings": {
+        "creativity": {
+          "value": 0,
+          "min": -1,
+          "max": 3
+        },
+        "focus": {
+          "value": 0,
+          "min": -1,
+          "max": 3
+        },
+        "harmony": {
+          "value": 0,
+          "min": -1,
+          "max": 3
+        },
+        "passion": {
+          "value": 0,
+          "min": -1,
+          "max": 3
+        }
+      },
+      "holds": "",
+      "idealYin": "",
+      "idealYang": ""
+    },
+    "bystander": {
+      "templates": ["common", "creature"]
+    },
+    "location": {
+      "templates": ["common"]
+    },
+    "minion": {
+      "templates": ["common", "creature"]
+    },
+    "monster": {
+      "templates": ["common", "creature"]
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "gear", "move", "condition", "status"],
+    "templates": {
+      "common": {
+        "description": ""
+      },
+      "object": {
+        "quantity": 1,
+        "tags": ""
+      }
+    },
+    "weapon": {
+      "templates": ["common", "object"],
+      "harm": {
+        "value": 0
+      },
+      "range": ""
+    },
+    "armor": {
+      "templates": ["common"]
+    },
+    "gear": {
+      "templates": ["common", "object"]
+    },
+    "move": {
+      "templates": ["common"],
+      "rating": ""
+    },
+    "condition": {
+      "templates": ["common"]
+    },
+    "status": {
+      "templates": ["common"]
+    }
+  }
+}

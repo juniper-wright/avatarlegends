@@ -1,0 +1,27 @@
+{
+  "name": "avatarlegends",
+  "title": "Avatar Legends",
+  "description": "A simple system for Avatar Legends.",
+  "version": "1.4.0",
+  "minimumCoreVersion": "0.8.4",
+  "compatibleCoreVersion": "9",
+  "templateVersion": 1,
+  "author": "Dave Bort <git@dbort.com>",
+  "esmodules": ["module/simple.js"],
+  "styles": ["styles/simple.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "fatigue",
+  "url": "https://github.com/ian-mcdevitt/avatarlegends",
+  "manifest": "https://raw.githubusercontent.com/ian-mcdevitt/avatarlegends/main/system.json",
+  "download": "https://github.com/ian-mcdevitt/avatarlegends/archive/refs/heads/main.zip",
+  "license": "LICENSE.txt"
+}

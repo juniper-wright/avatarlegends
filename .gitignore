@@ -1,0 +1,9 @@
+# IDE
+.idea/
+.vs/
+.vscode/
+
+# Node Modules
+node_modules/
+package-lock.json
+/monsterweek.lock

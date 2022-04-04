@@ -1,0 +1,218 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100"/>
+        <div class="header-fields">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{data.name}}" placeholder="Name"/>
+            </h1>
+            {{!-- Ratings: Cool, Tough, etc. --}}
+            <div class="flexrow ratings">
+                {{!-- TODO: Is the order stable? --}}
+                {{#each systemData.ratings as |rating id|}}
+                <div class="rating">
+                    <label><a class="rollable" data-rating="{{id}}">{{localize (concat "SIMPLE." id)}}</a></label>
+                    <input
+                      type="text"
+                      name="data.ratings.{{id}}.value"
+                      value="{{rating.value}}"
+                      data-dtype="Number"/>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </header>
+
+    {{!-- Hunter Status --}}
+    <section class="hunter-status flexrow">
+        <div>
+            <label class="header">{{localize "SIMPLE.Harm"}}</label>
+            <div>
+                <label>{{localize "SIMPLE.Okay"}}</label>
+                {{> "systems/avatarlegends/templates/parts/track.html"
+                    valueName="harm" value=systemData.harm}}
+                <label>{{localize "SIMPLE.Dying"}}</label>
+            </div>
+        </div>
+        <div class="flex3">
+            <label class="header">{{localize "SIMPLE.Balance"}}</label>
+            <div>
+                <input class="balanceInput" type="text" name="data.idealYin" value="{{data.data.idealYinFormatted}}" data-dtype="String" />
+                {{> "systems/avatarlegends/templates/parts/balance.html"
+                    valueName="luck" value=systemData.luck}}
+                <input class="balanceInput" type="text" name="data.idealYang" value="{{data.data.idealYangFormatted}}" data-dtype="String" />
+            </div>
+        </div>
+        <div>
+            <label class="header">{{localize "SIMPLE.Experience"}}</label>
+            <div>
+                {{> "systems/avatarlegends/templates/parts/track.html"
+                    valueName="experience" value=systemData.experience}}
+            </div>
+        </div>
+    </section>
+
+    {{!-- Tab clusters --}}
+    <section class="sheet-body flexrow">
+        {{!-- Left Tabs --}}
+        <div>
+            {{!-- Tab Navigation --}}
+            <nav class="sheet-tabs tabs tab-nav-left" data-group="left">
+                <a class="item" data-tab="moves" primary="true">
+                    {{localize "SIMPLE.Moves"}}
+                </a>
+                <a class="item" data-tab="techniques">
+                    {{localize "SIMPLE.Techniques"}}
+                </a>
+                <a class="item" data-tab="background">
+                    {{localize "SIMPLE.Background"}}
+                </a>
+            </nav>
+
+            {{!-- Tabs --}}
+            <div class="tab-content tab-content-left">
+                {{!-- Moves Tab --}}
+                <div class="tab moves" data-group="left" data-tab="moves">
+                    <ol class="inventory-list">
+                        <li class="inventory-header flexrow">
+                            <h3 class="item">{{localize "SIMPLE.Moves"}}</h3>
+                            {{#if owner}}
+                            <div class="item-controls">
+                                <a class="item-control item-create" title='{{localize "SIMPLE.Add"}}' data-type="Moves">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
+                            {{/if}}
+                        </li>
+                        <ol class="item-list">
+                        {{#each actor.moves as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                                <h4 class="item-name">
+                                    {{item.name}}
+                                    {{#if (isNonEmptyString item.data.rating)}}
+                                    <a class="chip rollable" data-rating="{{item.data.rating}}" data-title="{{item.name}}">
+                                      {{~localize (concat "SIMPLE." item.data.rating)~}}
+                                    </a>
+                                    {{/if}}
+                                </h4>
+                                <div class="item-controls">
+                                    <a class="item-control item-edit" title="Edit Move"><i class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="Delete Move"><i class="fas fa-trash"></i></a>
+                                    {{!-- TODO: "Create Move" button --}}
+                                </div>
+                            </li>
+                        {{/each}}
+                        </ol>
+                    </ol>
+                </div>
+
+                {{!-- Techniques Tab --}}
+                <div class="tab moves" data-group="left" data-tab="techniques">
+                    <ol class="inventory-list">
+                    {{#each actor.techniques as |section id|}}
+                        <li class="inventory-header flexrow">
+                            <h3 class="item">
+                                {{localize (concat "SIMPLE." section.label)}}
+                            </h3>
+                            {{#if ../owner}}
+                            <div class="item-controls">
+                                <a class="item-control item-create" title='{{localize "SIMPLE.Add"}}' data-type="{{section.label}}">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
+                            {{/if}}
+                        </li>
+                        <ol class="item-list">
+                        {{#each section.items as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                                <h4 class="item-name">
+                                    {{item.name}}
+                                    {{#each (split item.data.tags " ") as |tag|}}
+                                    <span class="chip">{{tag}}</span>
+                                    {{/each}}
+                                </h4>
+                                <div class="item-controls">
+                                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </li>
+                        {{/each}}
+                        </ol>
+                    {{/each}}
+                    </ol>
+                </div>
+
+                {{!-- Background Tab --}}
+                <div class="tab background" data-group="left" data-tab="background">
+                    {{editor content=systemData.background target="data.background" button=true owner=owner editable=editable}}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Visual separation between tabs. --}}
+        <div style="flex: 0;">&nbsp;&nbsp;&nbsp;</div>
+
+        {{!-- Right Tabs --}}
+        <div>
+            {{!-- Tab Navigation --}}
+            <nav class="sheet-tabs tabs tab-nav-right" data-group="right">
+                <a class="item" data-tab="gear" primary="true">
+                    {{localize "SIMPLE.Gear"}}
+                </a>
+                <a class="item" data-tab="holds">
+                    {{localize "SIMPLE.BonusesAndHolds"}}
+                </a>
+            </nav>
+
+            {{!-- Tabs --}}
+            <div class="tab-content tab-content-right">
+                {{!-- Owned Gear Tab --}}
+                <div class="tab gear" data-group="right" data-tab="gear">
+                    <ol class="inventory-list">
+                    {{#each actor.allGear as |section id|}}
+                        <li class="inventory-header flexrow">
+                            <h3 class="item">
+                                {{localize (concat "SIMPLE." section.label)}}
+                            </h3>
+                            {{#if ../owner}}
+                            <div class="item-controls">
+                                <a class="item-control item-create" title='{{localize "SIMPLE.Add"}}' data-type="{{section.label}}">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
+                            {{/if}}
+                        </li>
+                        <ol class="item-list">
+                        {{#each section.items as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                                <h4 class="item-name">
+                                    {{item.name}}
+                                    {{#each (split item.data.tags " ") as |tag|}}
+                                    <span class="chip">{{tag}}</span>
+                                    {{/each}}
+                                </h4>
+                                <div class="item-controls">
+                                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </li>
+                        {{/each}}
+                        </ol>
+                    {{/each}}
+                    </ol>
+                </div>
+
+                {{!-- Holds Tab --}}
+                {{!-- TODO: Add and remove elements --}}
+                {{!-- TODO: May be worth making these full items so we can have a compendium of them --}}
+                <div class="tab holds" data-group="right" data-tab="holds">
+                    {{editor content=systemData.holds target="data.holds" button=true owner=owner editable=editable}}
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

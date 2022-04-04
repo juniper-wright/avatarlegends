@@ -1,0 +1,230 @@
+.avatarlegends {
+  /* Sheet Tabs */
+  /* Items List */
+  /* Chips */
+}
+.avatarlegends .window-content {
+  height: 100%;
+  padding: 5px;
+  overflow-y: hidden;
+  background: url("/systems/avatarlegends/images/ui/paper-512.jpg") repeat;
+}
+.avatarlegends .sheet-header {
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.avatarlegends .sheet-header .profile-img {
+  flex: 0 0 110px;
+  height: 110px;
+  margin-right: 10px;
+}
+.avatarlegends .sheet-header .header-fields {
+  flex: 1;
+  height: 110px;
+}
+.avatarlegends .sheet-header h1.charname {
+  height: 55px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.avatarlegends .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.avatarlegends .rating {
+  text-align: center;
+}
+.avatarlegends .rating label {
+  font-weight: bold;
+}
+.avatarlegends .rating input {
+  border: none;
+}
+.avatarlegends .hunter-status {
+  overflow: hidden;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+.avatarlegends .hunter-status > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.avatarlegends .hunter-status > div.flex3 {
+  flex: 3;
+}
+.avatarlegends .hunter-status label.header {
+  font-weight: bold;
+}
+.avatarlegends .hunter-status .balanceInput {
+  width: 100px;
+  font-size: 0.875rem;
+  height: 22px;
+}
+.avatarlegends .hunter-status .balanceInput:first-of-type {
+  text-align: right;
+}
+.avatarlegends .track {
+  white-space: nowrap;
+}
+.avatarlegends .sheet-header .profile-img {
+  object-fit: cover;
+  object-position: 50% 0;
+}
+.avatarlegends .sheet-body {
+  border-top: 1px solid #AAA;
+}
+.avatarlegends .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+.avatarlegends .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+.avatarlegends .tab-content {
+  overflow: hidden;
+}
+.avatarlegends .tab-content .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+.avatarlegends .editor,
+.avatarlegends .editor-content {
+  height: 100%;
+}
+.avatarlegends img {
+  background-color: black;
+}
+.avatarlegends .inventory-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #7a7971;
+}
+.avatarlegends .inventory-list .inventory-header {
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+  line-height: 24px;
+}
+.avatarlegends .inventory-list .inventory-header h3 {
+  margin: 0 -5px 0 0;
+  padding-left: 5px;
+  color: #191813;
+  font-size: 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.avatarlegends .inventory-list .item-controls {
+  flex: 0 0 18px;
+  justify-content: flex-end;
+}
+.avatarlegends .inventory-list .item-controls a {
+  flex: 0 0 22px;
+  font-size: 12px;
+  text-align: center;
+}
+.avatarlegends .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.avatarlegends .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+  align-items: stretch;
+}
+.avatarlegends .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.avatarlegends .item-list .item-name {
+  margin: 0;
+  color: #191813;
+}
+.avatarlegends .item-list .item-name:hover {
+  text-shadow: 0 0 10px red;
+}
+.avatarlegends .item-list .item-controls {
+  flex: 0 0 36px;
+}
+.avatarlegends .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-start;
+}
+.avatarlegends .item-list .item-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  width: auto;
+}
+.avatarlegends .item-list .item-summary {
+  flex: 0 0 100%;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0.25em 0.5em;
+  color: #191813;
+}
+.avatarlegends .chip {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 12px;
+  line-height: 18px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+}
+.avatarlegends.sheet.actor {
+  min-width: 560px;
+  min-height: 420px;
+}
+.avatarlegends.sheet.item {
+  min-width: 460px;
+  min-height: 400px;
+}
+.avatarlegends.statistic {
+  font-size: 16px !important;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: #002d5d;
+}
+.avatarlegends.result {
+  font-weight: bold;
+  font-size: 16px;
+  text-stroke: 1px black;
+  display: block;
+  margin-bottom: 6px;
+}
+.avatarlegends.stronghit {
+  color: #33cc33;
+}
+.avatarlegends.miss {
+  color: #ff3333;
+}

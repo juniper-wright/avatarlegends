@@ -1,0 +1,29 @@
+{{!-- Example usage: valueName="harm" value=data.harm --}}
+<a class="track" data-value-name="{{valueName}}">
+    {{!-- TODO: Make unstable a {0..1} value and drop the special case --}}
+    {{#if (isBoolean value)}}
+        {{#if value}}
+            <span class="track-element marked">
+                <i class="fas fa-square"></i>
+            </span>
+        {{else}}
+            <span class="track-element unmarked subtract">
+                <i class="far fa-square"></i>
+            </span>
+        {{/if}}
+    {{else}}
+        {{!-- It's a {min, value, max} object. --}}
+        {{!-- TODO: Support a harm bar between 3 & 4 --}}
+        {{#times value.max}}
+            {{#if (lt timesIndex value.value)}}
+                <span class="track-element marked subtract">
+                    <i class="fas fa-square"></i>
+                </span>
+            {{else}}
+                <span class="track-element unmarked">
+                    <i class="far fa-square"></i>
+                </span>
+            {{/if}}
+        {{/times}}
+    {{/if}}
+</a>
