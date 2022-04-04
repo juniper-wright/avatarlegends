@@ -128,17 +128,19 @@ export class SimpleActorSheet extends ActorSheet {
     ev.preventDefault();
     ev.stopPropagation();
 
-    let button = $(ev.currentTarget);
-    let rating = button.data("rating");
-    let principle = button.data("principle");
-    let r;
-    console.log('ACTOR:', this.actor);
+    const button = $(ev.currentTarget);
+    const rating = button.data("rating");
+    const principle = button.data("principle");
+    let diceExpression;
     if (rating) {
-      r = await new Roll(`2d6 + @ratings.${rating}.value`, this.actor.getRollData()).evaluate({ async: true });
+      diceExpression = `2d6 + ${this.actor.data.data.ratings[rating].value}`
     } else if (principle) {
-      const modifier = principle === "Yin" ? 3 - this.actor.data.data.luck.value : this.actor.data.data.luck.value - 3;
-      r = await new Roll(`2d6 ${modifier >= 0 ? '+ ' : ''}${modifier}`.replace('-', '- '), this.actor.getRollData()).evaluate({ async: true });
+      diceExpression = `2d6 + ${principle === "Yin" ? 3 - this.actor.data.data.luck.value : this.actor.data.data.luck.value - 3}`;
     }
+    diceExpression = diceExpression.replace('+ -', '- ');
+
+    const r = await new Roll(diceExpression).evaluate({ async: true });
+
     let tier;
     if (r.total >= 10) {
       tier = game.i18n.localize("SIMPLE.StrongHit");

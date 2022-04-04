@@ -23,7 +23,7 @@
   "SIMPLE.None": "None",
   "SIMPLE.Fatigue": "Fatigue",
   "SIMPLE.Balance": "Balance",
-  "SIMPLE.Experience": "Growth",
+  "SIMPLE.Growth": "Growth",
 
   "SIMPLE.StrongHit": "Strong hit",
   "SIMPLE.WeakHit": "Weak hit",
