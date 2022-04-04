@@ -36,9 +36,9 @@ export class SimpleActorSheet extends ActorSheet {
     context.isCompanion = this.actor.data.type === "companion";
 
     this._preparePrinciples(context);
+    this._prepareItems(context);
     if (this.actor.data.type === 'companion') {
       this._prepareCompanionRatings(context);
-      this._prepareCompanionItems(context);
     }
 
     // This is the object that determines the namespace
@@ -82,7 +82,7 @@ export class SimpleActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCompanionItems(sheetData) {
+  _prepareItems(sheetData) {
     const actorData = sheetData.actor;
 
     const techniques = [];
