@@ -1,4 +1,4 @@
-{{!-- Example usage: valueName="harm" value=data.harm --}}
+{{!-- Example usage: valueName="fatigue" value=data.fatigue --}}
 <a class="track" data-value-name="{{valueName}}">
     {{!-- TODO: Make unstable a {0..1} value and drop the special case --}}
     {{#if (isBoolean value)}}
@@ -13,7 +13,7 @@
         {{/if}}
     {{else}}
         {{!-- It's a {min, value, max} object. --}}
-        {{!-- TODO: Support a harm bar between 3 & 4 --}}
+        {{!-- TODO: Support a fatigue bar over 5 --}}
         {{#times value.max}}
             {{#if (lt timesIndex value.value)}}
                 <span class="track-element marked subtract">

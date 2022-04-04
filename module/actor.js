@@ -16,7 +16,7 @@ export class SimpleActor extends Actor {
    * Modify an actor value or boolean.
    *
    * @param {string} valueName The name of the value to change;
-   *     e.g., "harm" or "unstable".
+   *     e.g., "fatigue" or "balance".
    * @param {int} delta Added to the current value. Booleans are treated
    *     as a 0..1 value.
    */

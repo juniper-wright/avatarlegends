@@ -1,7 +1,6 @@
-{{!-- Example usage: valueName="harm" value=data.harm --}}
+{{!-- Example usage: valueName="fatigue" value=data.fatigue --}}
 <a class="track" data-value-name="{{valueName}}">
     {{!-- It's a {min, value, max} object. --}}
-    {{!-- TODO: Support a harm bar between 3 & 4 --}}
     {{#times value.max}}
         {{#if (eq timesIndex value.value)}}
             <span class="marked">

@@ -86,7 +86,7 @@ export class SimpleActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
     const techniques = [];
-    const armor = [];
+    const statuses = [];
     const conditions = [];
     const moves = [];
 
@@ -96,8 +96,8 @@ export class SimpleActorSheet extends ActorSheet {
       if (i.type === 'technique') {
         techniques.push(i);
       }
-      else if (i.type === 'armor') {
-        armor.push(i);
+      else if (i.type === 'status') {
+        statuses.push(i);
       }
       else if (i.type === 'condition') {
         conditions.push(i);
@@ -113,7 +113,7 @@ export class SimpleActorSheet extends ActorSheet {
     ];
     actorData.allConditions = [
       // Labels must correspond to SIMPLE.${label} localizable strings.
-      {"label": "Armor", "items": armor},
+      {"label": "Statuses", "items": statuses},
       {"label": "Conditions", "items": conditions}
     ];
   }
@@ -141,11 +141,11 @@ export class SimpleActorSheet extends ActorSheet {
     }
     let tier;
     if (r.total >= 10) {
-      tier = game.i18n.localize("SIMPLE.TotalSuccess");
+      tier = game.i18n.localize("SIMPLE.StrongHit");
     } else if (r.total >= 7) {
-      tier = game.i18n.localize("SIMPLE.MixedSuccess");
+      tier = game.i18n.localize("SIMPLE.WeakHit");
     } else {
-      tier = game.i18n.localize("SIMPLE.Failure");
+      tier = game.i18n.localize("SIMPLE.Miss");
     }
 
     let title = button.data("title");
@@ -225,7 +225,7 @@ export class SimpleActorSheet extends ActorSheet {
       const DEFAULT_MOVE_ICON = "icons/svg/book.svg"
       const DEFAULT_CONDITION_ICON = "icons/svg/chest.svg";
       const DEFAULT_TECHNIQUE_ICON = "icons/svg/combat.svg";
-      const DEFAULT_ARMOR_ICON = "icons/svg/statue.svg";
+      const DEFAULT_STATUS_ICON = "icons/svg/statue.svg";
 
       // The incoming type will be a localization key like "Moves", but
       // we need an item type like "move".
@@ -233,7 +233,7 @@ export class SimpleActorSheet extends ActorSheet {
       const entry = {
         Moves: { type: "move", img: DEFAULT_MOVE_ICON },
         Techniques: { type: "technique", img: DEFAULT_TECHNIQUE_ICON },
-        Armor: { type: "armor", img: DEFAULT_ARMOR_ICON },
+        Statuses: { type: "status", img: DEFAULT_STATUS_ICON },
         Conditions: { type: "condition", img: DEFAULT_CONDITION_ICON },
       }[headerType];
 

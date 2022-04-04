@@ -37,7 +37,7 @@ Hooks.once("init", async function() {
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("avatarlegends", SimpleItemSheet, {
-    types: ["technique", "armor", "move", "condition", "status"],
+    types: ["technique", "move", "condition", "status"],
     makeDefault: true
   });
 
@@ -118,15 +118,15 @@ Hooks.on("createItem", item => {
   // TODO: Consolidate this with the similar list in actor-sheet.js.
   let DEFAULT_CONDITION_ICON = "icons/svg/chest.svg";
   let DEFAULT_TECHNIQUE_ICON = "icons/svg/combat.svg";
-  let DEFAULT_ARMOR_ICON = "icons/svg/statue.svg";
+  let DEFAULT_STATUS_ICON = "icons/svg/statue.svg";
   let DEFAULT_MOVE_ICON = "icons/svg/book.svg";
 
   let newImg = DEFAULT_CONDITION_ICON;
   if (item.type === "technique") {
     newImg = DEFAULT_TECHNIQUE_ICON;
   }
-  else if (item.type === "armor") {
-    newImg = DEFAULT_ARMOR_ICON;
+  else if (item.type === "status") {
+    newImg = DEFAULT_STATUS_ICON;
   }
   else if (item.type === "move") {
     newImg = DEFAULT_MOVE_ICON;

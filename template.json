@@ -7,7 +7,7 @@
         "type": ""
       },
       "creature": {
-        "harm": {
+        "fatigue": {
           "value": 0,
           "min": 0,
           "max": 5
@@ -56,7 +56,7 @@
     }
   },
   "Item": {
-    "types": ["technique", "armor", "condition", "move", "condition", "status"],
+    "types": ["technique", "condition", "move", "condition", "status"],
     "templates": {
       "common": {
         "description": ""
@@ -67,14 +67,7 @@
       }
     },
     "technique": {
-      "templates": ["common", "object"],
-      "harm": {
-        "value": 0
-      },
-      "range": ""
-    },
-    "armor": {
-      "templates": ["common"]
+      "templates": ["common", "object"]
     },
     "move": {
       "templates": ["common"],

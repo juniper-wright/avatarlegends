@@ -10,7 +10,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 ## Changes I'd like to make:
 
-* Translation file cleanup
 * General code audit, to remove MotW leftovers
 * General code quality improvements
 * Find a way to denote PC's center on their balance track

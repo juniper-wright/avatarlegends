@@ -1,8 +1,4 @@
 {
-  "SIMPLE.ResourceMin": "Min",
-  "SIMPLE.ResourceValue": "Value",
-  "SIMPLE.ResourceMax": "Max",
-
   "SIMPLE.Moves": "Moves",
   "SIMPLE.Conditions": "Conditions",
   "SIMPLE.BonusesAndHolds": "Bonuses/Holds",
@@ -10,8 +6,7 @@
   "SIMPLE.Description": "Description",
 
   "SIMPLE.Techniques": "Techniques",
-  "SIMPLE.Techniques": "Techniques",
-  "SIMPLE.Armor": "Statuses",
+  "SIMPLE.Statuses": "Statuses",
 
   "SIMPLE.Add": "Add",
   "SIMPLE.NewItem": "New Item",
@@ -20,27 +15,17 @@
   "SIMPLE.Quantity": "Quantity",
   "SIMPLE.Tags": "Tags",
 
-  "SIMPLE.cool": "Creativity",
   "SIMPLE.creativity": "Creativity",
-  "SIMPLE.tough": "Focus",
   "SIMPLE.focus": "Focus",
-  "SIMPLE.charm": "Harmony",
   "SIMPLE.harmony": "Harmony",
-  "SIMPLE.sharp": "Passion",
   "SIMPLE.passion": "Passion",
-  "SIMPLE.weird": "Weird",
 
   "SIMPLE.None": "None",
-  "SIMPLE.Harm": "Fatigue",
+  "SIMPLE.Fatigue": "Fatigue",
   "SIMPLE.Balance": "Balance",
-  "SIMPLE.Okay": " ",
-  "SIMPLE.Dying": " ",
-  "SIMPLE.Unstable": "Unstable",
-  "SIMPLE.Luck": "Luck",
-  "SIMPLE.Doomed": "Doomed",
   "SIMPLE.Experience": "Growth",
 
-  "SIMPLE.TotalSuccess": "Strong hit",
-  "SIMPLE.MixedSuccess": "Weak hit",
-  "SIMPLE.Failure": "Miss"
+  "SIMPLE.StrongHit": "Strong hit",
+  "SIMPLE.WeakHit": "Weak hit",
+  "SIMPLE.Miss": "Miss"
 }

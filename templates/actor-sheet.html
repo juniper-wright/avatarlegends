@@ -27,12 +27,10 @@
     {{!-- Companion Status --}}
     <section class="companion-status flexrow">
         <div>
-            <label class="header">{{localize "SIMPLE.Harm"}}</label>
+            <label class="header">{{localize "SIMPLE.Fatigue"}}</label>
             <div>
-                <label>{{localize "SIMPLE.Okay"}}</label>
                 {{> "systems/avatarlegends/templates/parts/track.html"
-                    valueName="harm" value=systemData.harm}}
-                <label>{{localize "SIMPLE.Dying"}}</label>
+                    valueName="fatigue" value=systemData.fatigue}}
             </div>
         </div>
         <div class="flex3">
@@ -51,7 +49,7 @@
             </div>
         </div>
         <div>
-            <label class="header">{{localize "SIMPLE.Experience"}}</label>
+            <label class="header">{{localize "SIMPLE.Growth"}}</label>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
                     valueName="experience" value=systemData.experience}}
