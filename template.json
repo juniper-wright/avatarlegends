@@ -17,7 +17,7 @@
     },
     "companion": {
       "templates": ["common", "creature"],
-      "luck": {
+      "balance": {
         "value": 3,
         "min": 0,
         "max": 7

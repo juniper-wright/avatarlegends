@@ -68,11 +68,9 @@ export class SimpleActorSheet extends ActorSheet {
    * @param {Object} sheetData The sheet containing the actor to prepare.
    */
   _prepareCompanionPrinciples(sheetData) {
-    // luck is what we're calling the principle track
-    // because copied from MotW
-    const luck = sheetData.data.data.luck.value;
-    sheetData.data.data.principleYinFormatted = `(${luck <= 3 ? '+' : ''}${3-luck})`;
-    sheetData.data.data.principleYangFormatted = `(${luck >= 3 ? '+' : ''}${luck-3})`;
+    const balance = sheetData.data.data.balance.value;
+    sheetData.data.data.principleYinFormatted = `(${balance <= 3 ? '+' : ''}${3-balance})`;
+    sheetData.data.data.principleYangFormatted = `(${balance >= 3 ? '+' : ''}${balance-3})`;
   }
 
   /**
@@ -135,7 +133,7 @@ export class SimpleActorSheet extends ActorSheet {
     if (rating) {
       diceExpression = `2d6 + ${this.actor.data.data.ratings[rating].value}`
     } else if (principle) {
-      diceExpression = `2d6 + ${principle === "Yin" ? 3 - this.actor.data.data.luck.value : this.actor.data.data.luck.value - 3}`;
+      diceExpression = `2d6 + ${principle === "Yin" ? 3 - this.actor.data.data.balance.value : this.actor.data.data.balance.value - 3}`;
     }
     diceExpression = diceExpression.replace('+ -', '- ');
 

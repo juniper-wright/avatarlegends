@@ -41,7 +41,7 @@
                 {{/if}}
                 <input class="balanceInput" type="text" name="data.principleYin" value="{{data.data.principleYin}}" data-dtype="String" />
                 {{> "systems/avatarlegends/templates/parts/balance.html"
-                    valueName="luck" value=systemData.luck}}
+                    valueName="balance" value=systemData.balance}}
                 <input class="balanceInput" type="text" name="data.principleYang" value="{{data.data.principleYang}}" data-dtype="String" />
                 {{#if owner }}
                 <button class="rollable balanceButton" data-principle="Yang">{{data.data.principleYangFormatted}}</button>

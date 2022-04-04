@@ -14,18 +14,18 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 * General code quality improvements
 * NPCs should have their own actor type (they have no moves, stats, backgrounds, or growth)
 * PCs should have somewhere to put demeanor, training, fighting style, connections, notes
-* Character sheet needs to be way less ugly
 * Techniques should have fields for playbook, training type, approach, learned level
 * Moves should have fields for basic/balance/playbook/needed-for-the-game-to-work, which playbook it belongs to if playbook, associated stat (instead of "rating")
-* Try to make Conditions actually modify moves?
 * Make a way to view all PCs' fatigue/conditions/balance (for the GM) or all PCs' balance (for PCs)
 * Once the above is done, allow PCs to roll with other PCs' principles
 * Add a way to roll with an NPC's principle?
 * Make statuses/conditions a series of booleans
+* Try to make Conditions actually modify moves?
 * Once the above is done, add a "taken out" indicator if fatigue and conditions are maxed
 * Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
 * A way to track, interact with, or include playbook features
 * Build in a way for the player to change their center
+* Character sheet needs to be way less ugly
 
 ## Versioning:
 
