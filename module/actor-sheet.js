@@ -20,7 +20,7 @@ export class SimpleActorSheet extends ActorSheet {
         {
           navSelector: ".tab-nav-right",
           contentSelector: ".tab-content-right",
-          initial: "gear",
+          initial: "conditions",
         },
       ],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
@@ -36,7 +36,7 @@ export class SimpleActorSheet extends ActorSheet {
 
     if (this.actor.data.type === 'companion') {
       this._prepareCompanionRatings(context);
-      this._prepareCompanionIdeals(context);
+      this._prepareCompanionPrinciples(context);
       this._prepareCompanionItems(context);
     }
 
@@ -63,16 +63,16 @@ export class SimpleActorSheet extends ActorSheet {
   }
 
   /**
-   * Configure the character's ideals
+   * Configure the character's principles
    * 
    * @param {Object} sheetData The sheet containing the actor to prepare.
    */
-  _prepareCompanionIdeals(sheetData) {
-    // luck is what we're calling the ideal track
+  _prepareCompanionPrinciples(sheetData) {
+    // luck is what we're calling the principle track
     // because copied from MotW
     const luck = sheetData.data.data.luck.value;
-    sheetData.data.data.idealYinFormatted = `(${luck <= 3 ? '+' : ''}${3-luck})`;
-    sheetData.data.data.idealYangFormatted = `(${luck >= 3 ? '+' : ''}${luck-3})`;
+    sheetData.data.data.principleYinFormatted = `(${luck <= 3 ? '+' : ''}${3-luck})`;
+    sheetData.data.data.principleYangFormatted = `(${luck >= 3 ? '+' : ''}${luck-3})`;
   }
 
   /**
@@ -87,7 +87,7 @@ export class SimpleActorSheet extends ActorSheet {
 
     const techniques = [];
     const armor = [];
-    const gear = [];
+    const conditions = [];
     const moves = [];
 
     // Iterate through items, allocating to containers
@@ -99,8 +99,8 @@ export class SimpleActorSheet extends ActorSheet {
       else if (i.type === 'armor') {
         armor.push(i);
       }
-      else if (i.type === 'gear') {
-        gear.push(i);
+      else if (i.type === 'condition') {
+        conditions.push(i);
       }
       else if (i.type === 'move') {
         moves.push(i);
@@ -111,10 +111,10 @@ export class SimpleActorSheet extends ActorSheet {
     actorData.techniques = [
       {"label": "Techniques", "items": techniques}
     ];
-    actorData.allGear = [
+    actorData.allConditions = [
       // Labels must correspond to SIMPLE.${label} localizable strings.
       {"label": "Armor", "items": armor},
-      {"label": "Gear", "items": gear}
+      {"label": "Conditions", "items": conditions}
     ];
   }
 
@@ -150,7 +150,7 @@ export class SimpleActorSheet extends ActorSheet {
 
     let title = button.data("title");
     if (!title) {
-      title = game.i18n.localize(rating ? `SIMPLE.${rating}` : this.actor.data.data[`ideal${principle}`]);
+      title = game.i18n.localize(rating ? `SIMPLE.${rating}` : this.actor.data.data[`principle${principle}`]);
     }
 
     const diceTotal = (r?.total - r?.terms?.[2]?.number);
@@ -173,7 +173,7 @@ export class SimpleActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /**
-   * Shows/hides item (move/gear/etc.) summaries when clicking on item names.
+   * Shows/hides item (move/condition/etc.) summaries when clicking on item names.
    * @private
    */
   _onItemNameClick(event) {
@@ -214,7 +214,7 @@ export class SimpleActorSheet extends ActorSheet {
       this.actor.modifyValue(valueName, delta);
     });
 
-    // Show/hide item (move/gear/etc) summaries when clicking on item names.
+    // Show/hide item (move/condition/etc) summaries when clicking on item names.
     html.find('.item-list .item .item-name').click(ev => this._onItemNameClick(ev));
 
     // Add Inventory Item
@@ -223,8 +223,8 @@ export class SimpleActorSheet extends ActorSheet {
 
       // TODO: Consolidate this with the similar list in simple.js.
       const DEFAULT_MOVE_ICON = "icons/svg/book.svg"
-      const DEFAULT_GEAR_ICON = "icons/svg/chest.svg";
-      const DEFAULT_WEAPON_ICON = "icons/svg/combat.svg";
+      const DEFAULT_CONDITION_ICON = "icons/svg/chest.svg";
+      const DEFAULT_TECHNIQUE_ICON = "icons/svg/combat.svg";
       const DEFAULT_ARMOR_ICON = "icons/svg/statue.svg";
 
       // The incoming type will be a localization key like "Moves", but
@@ -232,9 +232,9 @@ export class SimpleActorSheet extends ActorSheet {
       const headerType = $(ev.currentTarget).data("type");
       const entry = {
         Moves: { type: "move", img: DEFAULT_MOVE_ICON },
-        Techniques: { type: "technique", img: DEFAULT_WEAPON_ICON },
+        Techniques: { type: "technique", img: DEFAULT_TECHNIQUE_ICON },
         Armor: { type: "armor", img: DEFAULT_ARMOR_ICON },
-        Gear: { type: "gear", img: DEFAULT_GEAR_ICON },
+        Conditions: { type: "condition", img: DEFAULT_CONDITION_ICON },
       }[headerType];
 
       const itemData = {

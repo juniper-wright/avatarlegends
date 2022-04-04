@@ -51,12 +51,12 @@
         }
       },
       "holds": "",
-      "idealYin": "",
-      "idealYang": ""
+      "principleYin": "",
+      "principleYang": ""
     }
   },
   "Item": {
-    "types": ["technique", "armor", "gear", "move", "condition", "status"],
+    "types": ["technique", "armor", "condition", "move", "condition", "status"],
     "templates": {
       "common": {
         "description": ""
@@ -75,9 +75,6 @@
     },
     "armor": {
       "templates": ["common"]
-    },
-    "gear": {
-      "templates": ["common", "object"]
     },
     "move": {
       "templates": ["common"],

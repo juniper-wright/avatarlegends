@@ -39,14 +39,14 @@
             <label class="header">{{localize "SIMPLE.Balance"}}</label>
             <div>
                 {{#if owner }}
-                <button class="rollable balanceButton" data-principle="Yin">{{data.data.idealYinFormatted}}</button>
+                <button class="rollable balanceButton" data-principle="Yin">{{data.data.principleYinFormatted}}</button>
                 {{/if}}
-                <input class="balanceInput" type="text" name="data.idealYin" value="{{data.data.idealYin}}" data-dtype="String" />
+                <input class="balanceInput" type="text" name="data.principleYin" value="{{data.data.principleYin}}" data-dtype="String" />
                 {{> "systems/avatarlegends/templates/parts/balance.html"
                     valueName="luck" value=systemData.luck}}
-                <input class="balanceInput" type="text" name="data.idealYang" value="{{data.data.idealYang}}" data-dtype="String" />
+                <input class="balanceInput" type="text" name="data.principleYang" value="{{data.data.principleYang}}" data-dtype="String" />
                 {{#if owner }}
-                <button class="rollable balanceButton" data-principle="Yang">{{data.data.idealYangFormatted}}</button>
+                <button class="rollable balanceButton" data-principle="Yang">{{data.data.principleYangFormatted}}</button>
                 {{/if}}
             </div>
         </div>
@@ -165,8 +165,8 @@
         <div>
             {{!-- Tab Navigation --}}
             <nav class="sheet-tabs tabs tab-nav-right" data-group="right">
-                <a class="item" data-tab="gear" primary="true">
-                    {{localize "SIMPLE.Gear"}}
+                <a class="item" data-tab="condition" primary="true">
+                    {{localize "SIMPLE.Conditions"}}
                 </a>
                 <a class="item" data-tab="holds">
                     {{localize "SIMPLE.BonusesAndHolds"}}
@@ -175,10 +175,10 @@
 
             {{!-- Tabs --}}
             <div class="tab-content tab-content-right">
-                {{!-- Owned Gear Tab --}}
-                <div class="tab gear" data-group="right" data-tab="gear">
+                {{!-- Conditions Tab --}}
+                <div class="tab condition" data-group="right" data-tab="condition">
                     <ol class="inventory-list">
-                    {{#each actor.allGear as |section id|}}
+                    {{#each actor.allConditions as |section id|}}
                         <li class="inventory-header flexrow">
                             <h3 class="item">
                                 {{localize (concat "SIMPLE." section.label)}}
