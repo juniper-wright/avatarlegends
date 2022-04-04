@@ -12,7 +12,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 * General code audit, to remove MotW leftovers
 * General code quality improvements
-* Find a way to denote PC's center on their balance track
 * NPCs should have their own actor type (they have no moves, stats, backgrounds, or growth)
 * PCs should have somewhere to put demeanor, training, fighting style, connections, notes
 * Character sheet needs to be way less ugly
@@ -26,6 +25,7 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 * Once the above is done, add a "taken out" indicator if fatigue and conditions are maxed
 * Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
 * A way to track, interact with, or include playbook features
+* Build in a way for the player to change their center
 
 ## Versioning:
 

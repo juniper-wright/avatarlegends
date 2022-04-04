@@ -75,6 +75,12 @@
 .avatarlegends .companion-status .fa-square {
   transform: rotate(45deg);
 }
+.avatarlegends .companion-status .track .center i {
+  width: 15px;
+  height: 16px;
+  border-bottom: 2px solid blue;
+  border-right: 2px solid blue;
+}
 .avatarlegends .companion-status .balanceInput {
   width: 80px;
   font-size: 0.875rem;

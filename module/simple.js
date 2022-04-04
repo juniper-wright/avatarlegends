@@ -65,13 +65,22 @@ Hooks.once("init", async function() {
   });
 
   /**
-   * Return true if one value is less than another.
+   * Register Handlebars numerical comparison helpers
    */
   Handlebars.registerHelper('lt', function(a, b) {
     return a < b;
   });
+  Handlebars.registerHelper('lte', function(a, b) {
+    return a <= b;
+  });
   Handlebars.registerHelper('gt', function(a, b) {
     return a > b;
+  });
+  Handlebars.registerHelper('gte', function(a, b) {
+    return a >= b;
+  });
+  Handlebars.registerHelper('eq', function(a, b) {
+    return a === b;
   });
 
   /**
