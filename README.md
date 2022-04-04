@@ -25,3 +25,9 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 * Make statuses/conditions a series of booleans
 * Once the above is done, add a "taken out" indicator if fatigue and conditions are maxed
 * Actual fields for forward/ongoing (with scope levels: all, )
+
+## Versioning:
+
+* Prior to v1.0.0, under semver, patch versions will be bugfixes and tweaks, and minor versions will be new features that may break functionality. All of these versions will be tagged -alpha.
+* v1.0.0 will be released when I feel like this system exhaustively allows you to play **AL:TRPG**. I will likely go through an internal alpha, a public beta, then a full release.
+* After v1.0.0, I will follow semver (major version for breaking changes, minor version for new features, patch version for bugfixes).
