@@ -53,22 +53,10 @@
       "holds": "",
       "idealYin": "",
       "idealYang": ""
-    },
-    "bystander": {
-      "templates": ["common", "creature"]
-    },
-    "location": {
-      "templates": ["common"]
-    },
-    "minion": {
-      "templates": ["common", "creature"]
-    },
-    "monster": {
-      "templates": ["common", "creature"]
     }
   },
   "Item": {
-    "types": ["weapon", "armor", "gear", "move", "condition", "status"],
+    "types": ["technique", "armor", "gear", "move", "condition", "status"],
     "templates": {
       "common": {
         "description": ""
@@ -78,7 +66,7 @@
         "tags": ""
       }
     },
-    "weapon": {
+    "technique": {
       "templates": ["common", "object"],
       "harm": {
         "value": 0

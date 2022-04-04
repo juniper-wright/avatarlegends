@@ -32,12 +32,12 @@ Hooks.once("init", async function() {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("avatarlegends", SimpleActorSheet, {
-    types: ["companion", "bystander", "location", "minion", "monster"],
+    types: ["companion"],
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("avatarlegends", SimpleItemSheet, {
-    types: ["weapon", "armor", "gear", "move", "condition", "status"],
+    types: ["technique", "armor", "gear", "move", "condition", "status"],
     makeDefault: true
   });
 
@@ -122,7 +122,7 @@ Hooks.on("createItem", item => {
   let DEFAULT_MOVE_ICON = "icons/svg/book.svg";
 
   let newImg = DEFAULT_GEAR_ICON;
-  if (item.type === "weapon") {
+  if (item.type === "technique") {
     newImg = DEFAULT_WEAPON_ICON;
   }
   else if (item.type === "armor") {

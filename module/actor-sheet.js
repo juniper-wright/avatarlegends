@@ -85,7 +85,7 @@ export class SimpleActorSheet extends ActorSheet {
   _prepareCompanionItems(sheetData) {
     const actorData = sheetData.actor;
 
-    const weapons = [];
+    const techniques = [];
     const armor = [];
     const gear = [];
     const moves = [];
@@ -93,8 +93,8 @@ export class SimpleActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
       i.img = i.img || DEFAULT_TOKEN;
-      if (i.type === 'weapon') {
-        weapons.push(i);
+      if (i.type === 'technique') {
+        techniques.push(i);
       }
       else if (i.type === 'armor') {
         armor.push(i);
@@ -109,7 +109,7 @@ export class SimpleActorSheet extends ActorSheet {
 
     actorData.moves = moves;
     actorData.techniques = [
-      {"label": "Weapons", "items": weapons}
+      {"label": "Techniques", "items": techniques}
     ];
     actorData.allGear = [
       // Labels must correspond to SIMPLE.${label} localizable strings.
@@ -232,7 +232,7 @@ export class SimpleActorSheet extends ActorSheet {
       const headerType = $(ev.currentTarget).data("type");
       const entry = {
         Moves: { type: "move", img: DEFAULT_MOVE_ICON },
-        Weapons: { type: "weapon", img: DEFAULT_WEAPON_ICON },
+        Techniques: { type: "technique", img: DEFAULT_WEAPON_ICON },
         Armor: { type: "armor", img: DEFAULT_ARMOR_ICON },
         Gear: { type: "gear", img: DEFAULT_GEAR_ICON },
       }[headerType];
