@@ -71,8 +71,8 @@ export class SimpleActorSheet extends ActorSheet {
     // luck is what we're calling the ideal track
     // because copied from MotW
     const luck = sheetData.data.data.luck.value;
-    sheetData.data.data.idealYinFormatted = `${sheetData.data.data.idealYin} (${luck <= 3 ? '+' : ''}${3-luck})`;
-    sheetData.data.data.idealYangFormatted = `${sheetData.data.data.idealYang} (${luck >= 3 ? '+' : ''}${luck-3})`;
+    sheetData.data.data.idealYinFormatted = `(${luck <= 3 ? '+' : ''}${3-luck})`;
+    sheetData.data.data.idealYangFormatted = `(${luck >= 3 ? '+' : ''}${luck-3})`;
   }
 
   /**
@@ -129,8 +129,16 @@ export class SimpleActorSheet extends ActorSheet {
     ev.stopPropagation();
 
     let button = $(ev.currentTarget);
-    let rating = button.data("rating")
-    let r = await new Roll(`2d6 + @ratings.${rating}.value`, this.actor.getRollData()).evaluate({async: true});
+    let rating = button.data("rating");
+    let principle = button.data("principle");
+    let r;
+    console.log('ACTOR:', this.actor);
+    if (rating) {
+      r = await new Roll(`2d6 + @ratings.${rating}.value`, this.actor.getRollData()).evaluate({ async: true });
+    } else if (principle) {
+      const modifier = principle === "Yin" ? 3 - this.actor.data.data.luck.value : this.actor.data.data.luck.value - 3;
+      r = await new Roll(`2d6 ${modifier >= 0 ? '+ ' : ''}${modifier}`.replace('-', '- '), this.actor.getRollData()).evaluate({ async: true });
+    }
     let tier;
     if (r.total >= 10) {
       tier = game.i18n.localize("SIMPLE.TotalSuccess");
@@ -142,7 +150,7 @@ export class SimpleActorSheet extends ActorSheet {
 
     let title = button.data("title");
     if (!title) {
-      title = game.i18n.localize("SIMPLE." + rating);
+      title = game.i18n.localize(rating ? `SIMPLE.${rating}` : this.actor.data.data[`ideal${principle}`]);
     }
 
     const diceTotal = (r?.total - r?.terms?.[2]?.number);
@@ -192,7 +200,7 @@ export class SimpleActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     if (this.actor.isOwner) {
-      // Roll when clicking the name of a rating.
+      // Roll when clicking the name of a rating, or on a principle's roll button.
       html.find(".rollable").on("click", this._onRatingRoll.bind(this));
     }
 

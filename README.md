@@ -10,7 +10,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 ## Changes I'd like to make:
 
-* Balance track should be rollable
 * NPCs should have their own actor type (they have no moves, stats, backgrounds, or growth)
 * PCs should have somewhere to put demeanor, training, fighting style, connections, notes
 * Character sheet needs to be way less ugly

@@ -38,10 +38,16 @@
         <div class="flex3">
             <label class="header">{{localize "SIMPLE.Balance"}}</label>
             <div>
-                <input class="balanceInput" type="text" name="data.idealYin" value="{{data.data.idealYinFormatted}}" data-dtype="String" />
+                {{#if owner }}
+                <button class="rollable balanceButton" data-principle="Yin">{{data.data.idealYinFormatted}}</button>
+                {{/if}}
+                <input class="balanceInput" type="text" name="data.idealYin" value="{{data.data.idealYin}}" data-dtype="String" />
                 {{> "systems/avatarlegends/templates/parts/balance.html"
                     valueName="luck" value=systemData.luck}}
-                <input class="balanceInput" type="text" name="data.idealYang" value="{{data.data.idealYangFormatted}}" data-dtype="String" />
+                <input class="balanceInput" type="text" name="data.idealYang" value="{{data.data.idealYang}}" data-dtype="String" />
+                {{#if owner }}
+                <button class="rollable balanceButton" data-principle="Yang">{{data.data.idealYangFormatted}}</button>
+                {{/if}}
             </div>
         </div>
         <div>
