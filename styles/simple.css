@@ -72,6 +72,9 @@
 .avatarlegends .hunter-status label.header {
   font-weight: bold;
 }
+.avatarlegends .hunter-status .fa-square {
+  transform: rotate(45deg);
+}
 .avatarlegends .hunter-status .balanceInput {
   width: 80px;
   font-size: 0.875rem;
