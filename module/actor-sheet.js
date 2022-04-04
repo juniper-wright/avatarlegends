@@ -296,9 +296,6 @@ export class SimpleActorSheet extends ActorSheet {
     // Lets us intercept edits before sending to the server.
     // formData contains name/value pairs from <input> elements etc. in the form.
 
-    formData['data.idealYin'] = formData['data.idealYin'].replace(/ \([+-][0-9]\)/g, '').trim();
-    formData['data.idealYang'] = formData['data.idealYang'].replace(/ \([+-][0-9]\)/g, '').trim();
-
     // Update the Actor
     return this.object.update(formData);
   }
