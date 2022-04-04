@@ -1,6 +1,6 @@
 # Avatar Legends
 
-A simple, unofficial [Foundry VTT](https://foundryvtt.com/) system for [Magpie Games](https://magpiegames.com/)'s [Avatar Legends: The RPG](https://magpiegames.com/pages/avatarrpg).
+A simple, unofficial [Foundry VTT](https://foundryvtt.com/) system for [Magpie Games](https://magpiegames.com/)' [Avatar Legends: The RPG](https://magpiegames.com/pages/avatarrpg).
 
 ## Overview
 
@@ -28,6 +28,7 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 * A way to track, interact with, or include playbook features
 * Build in a way for the player to change their center
 * Character sheet needs to be way less ugly
+* Have moves' miss/weakhit/stronghit rules show up in chat?
 
 ## Versioning:
 
