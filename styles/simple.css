@@ -10,7 +10,7 @@
   background: url("/systems/avatarlegends/images/ui/paper-512.jpg") repeat;
 }
 .avatarlegends .sheet-header {
-  height: 110px;
+  height: 120px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -19,13 +19,13 @@
   margin-bottom: 10px;
 }
 .avatarlegends .sheet-header .profile-img {
-  flex: 0 0 110px;
-  height: 110px;
+  flex: 0 0 120px;
+  height: 120px;
   margin-right: 10px;
 }
 .avatarlegends .sheet-header .header-fields {
   flex: 1;
-  height: 110px;
+  height: 120px;
 }
 .avatarlegends .sheet-header h1.charname {
   height: 55px;
@@ -47,6 +47,13 @@
 .avatarlegends .rating input {
   border: none;
 }
+.avatarlegends .ratings > div {
+  min-width: 25%;
+}
+.avatarlegends .ratings input[type="checkbox"] {
+  height: 14px;
+  width: 14px;
+}
 .avatarlegends .companion-status {
   overflow: hidden;
   flex-wrap: nowrap;
@@ -62,7 +69,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.avatarlegends .companion-status > div:last-child {
+.avatarlegends .companion-status > div:nth-child(3) {
   align-items: flex-end;
 }
 .avatarlegends .companion-status > div.flex3 {
@@ -81,22 +88,28 @@
   border-bottom: 2px solid blue;
   border-right: 2px solid blue;
 }
-.avatarlegends .companion-status .balanceInput {
+.avatarlegends .companion-status .track-element:nth-child(5n) {
+  margin-right: 5px;
+}
+.avatarlegends .balance-input {
   width: 80px;
   font-size: 0.875rem;
   height: 22px;
 }
-.avatarlegends .companion-status .balanceInput:first-of-type {
+.avatarlegends .balance-input:first-of-type {
   text-align: right;
 }
-.avatarlegends .companion-status .balanceButton {
+.avatarlegends .balance-input:only-of-type {
+  text-align: center !important;
+}
+.avatarlegends .balanceButton {
   width: 30px;
   height: 24px;
   line-height: 20px;
   margin: 0px -2px;
   padding: 0px;
 }
-.avatarlegends .companion-status .balanceButton:active {
+.avatarlegends .balanceButton:active {
   background-color: rgba(0,0,0,0.3);
   border-color: rgba(0,0,0,0.3);
 }

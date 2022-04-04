@@ -1,29 +1,9 @@
 {{!-- Example usage: valueName="fatigue" value=data.fatigue --}}
 <a class="track" data-value-name="{{valueName}}">
-    {{!-- TODO: Make unstable a {0..1} value and drop the special case --}}
-    {{#if (isBoolean value)}}
-        {{#if value}}
-            <span class="track-element marked">
-                <i class="fas fa-square"></i>
-            </span>
-        {{else}}
-            <span class="track-element unmarked subtract">
-                <i class="far fa-square"></i>
-            </span>
-        {{/if}}
-    {{else}}
-        {{!-- It's a {min, value, max} object. --}}
-        {{!-- TODO: Support a fatigue bar over 5 --}}
-        {{#times value.max}}
-            {{#if (lt timesIndex value.value)}}
-                <span class="track-element marked subtract">
-                    <i class="fas fa-square"></i>
-                </span>
-            {{else}}
-                <span class="track-element unmarked">
-                    <i class="far fa-square"></i>
-                </span>
-            {{/if}}
-        {{/times}}
-    {{/if}}
+    {{!-- It's a {min, value, max} object. --}}
+    {{#times value.max}}
+        <span class="track-element {{#if (lt timesIndex value.value)}}marked subtract{{else}}unmarked{{/if}}">
+            <i class="{{#if (lt timesIndex value.value)}}fas{{else}}far{{/if}} fa-square"></i>
+        </span>
+    {{/times}}
 </a>

@@ -32,7 +32,7 @@ Hooks.once("init", async function() {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("avatarlegends", SimpleActorSheet, {
-    types: ["companion"],
+    types: ["companion", "minorNPC", "majorNPC", "masterNPC", "legendNPC"],
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);

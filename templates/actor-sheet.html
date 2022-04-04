@@ -20,6 +20,14 @@
                       data-dtype="Number"/>
                 </div>
                 {{/each}}
+                {{#unless isCompanion}}
+                    {{#each systemData.conditions}}
+                    <div data-condition-index="{{@index}}">
+                        <input type="checkbox" class="condition-checkbox" {{#if this.checked}}checked{{/if}} />
+                        <input type="text" name="condition-name-{{@index}}" class="balance-input" value="{{this.name}}" />
+                    </div>
+                    {{/each}}
+                {{/unless}}
             </div>
         </div>
     </header>
@@ -33,18 +41,19 @@
                     valueName="fatigue" value=systemData.fatigue}}
             </div>
         </div>
+        {{#if isCompanion}}
         <div class="flex3">
             <label class="header">{{localize "SIMPLE.Balance"}}</label>
             <div>
-                {{#if owner }}
-                <button class="rollable balanceButton" data-principle="Yin">{{data.data.principleYinFormatted}}</button>
+                {{#if owner}}
+                <button class="rollable balanceButton" data-principle="Yin">{{systemData.principleYinFormatted}}</button>
                 {{/if}}
-                <input class="balanceInput" type="text" name="data.principleYin" value="{{data.data.principleYin}}" data-dtype="String" />
+                <input class="balance-input" type="text" name="data.principleYin" value="{{systemData.principleYin}}" data-dtype="String" />
                 {{> "systems/avatarlegends/templates/parts/balance.html"
                     valueName="balance" value=systemData.balance}}
-                <input class="balanceInput" type="text" name="data.principleYang" value="{{data.data.principleYang}}" data-dtype="String" />
-                {{#if owner }}
-                <button class="rollable balanceButton" data-principle="Yang">{{data.data.principleYangFormatted}}</button>
+                <input class="balance-input" type="text" name="data.principleYang" value="{{systemData.principleYang}}" data-dtype="String" />
+                {{#if owner}}
+                <button class="rollable balanceButton" data-principle="Yang">{{systemData.principleYangFormatted}}</button>
                 {{/if}}
             </div>
         </div>
@@ -55,6 +64,19 @@
                     valueName="experience" value=systemData.experience}}
             </div>
         </div>
+        {{else}}
+        <div>
+            <label class="header">{{localize "SIMPLE.Balance"}}</label>
+            <div>
+                {{> "systems/avatarlegends/templates/parts/track.html"
+                    valueName="balance" value=systemData.balance}}
+                <input class="balance-input" type="text" name="data.principle" value="{{systemData.principle}}" data-dtype="String" />
+                {{#if owner}}
+                <button class="balanceButton" data-principle="Yang">{{systemData.principleFormatted}}</button>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
     </section>
 
     {{!-- Tab clusters --}}
@@ -63,15 +85,19 @@
         <div>
             {{!-- Tab Navigation --}}
             <nav class="sheet-tabs tabs tab-nav-left" data-group="left">
+                {{#if isCompanion}}
                 <a class="item" data-tab="moves" primary="true">
                     {{localize "SIMPLE.Moves"}}
                 </a>
+                {{/if}}
                 <a class="item" data-tab="techniques">
                     {{localize "SIMPLE.Techniques"}}
                 </a>
+                {{#if isCompanion}}
                 <a class="item" data-tab="background">
                     {{localize "SIMPLE.Background"}}
                 </a>
+                {{/if}}
             </nav>
 
             {{!-- Tabs --}}
@@ -163,9 +189,11 @@
         <div>
             {{!-- Tab Navigation --}}
             <nav class="sheet-tabs tabs tab-nav-right" data-group="right">
+                {{#if isCompanion}}
                 <a class="item" data-tab="condition" primary="true">
                     {{localize "SIMPLE.Conditions"}}
                 </a>
+                {{/if}}
                 <a class="item" data-tab="holds">
                     {{localize "SIMPLE.BonusesAndHolds"}}
                 </a>

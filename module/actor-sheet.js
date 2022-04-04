@@ -33,10 +33,11 @@ export class SimpleActorSheet extends ActorSheet {
   getData() {
     const context = super.getData();
     context.systemData = context.data.data;
+    context.isCompanion = this.actor.data.type === "companion";
 
+    this._preparePrinciples(context);
     if (this.actor.data.type === 'companion') {
       this._prepareCompanionRatings(context);
-      this._prepareCompanionPrinciples(context);
       this._prepareCompanionItems(context);
     }
 
@@ -67,10 +68,11 @@ export class SimpleActorSheet extends ActorSheet {
    * 
    * @param {Object} sheetData The sheet containing the actor to prepare.
    */
-  _prepareCompanionPrinciples(sheetData) {
+  _preparePrinciples(sheetData) {
     const balance = sheetData.data.data.balance.value;
     sheetData.data.data.principleYinFormatted = `(${balance <= 3 ? '+' : ''}${3-balance})`;
     sheetData.data.data.principleYangFormatted = `(${balance >= 3 ? '+' : ''}${balance-3})`;
+    sheetData.data.data.principleFormatted = `+${balance}`;
   }
 
   /**
@@ -214,6 +216,22 @@ export class SimpleActorSheet extends ActorSheet {
       this.actor.modifyValue(valueName, delta);
     });
 
+    html.find(".condition-checkbox").click(ev => {
+      const conditionIndex = $(ev.currentTarget).parent().data('condition-index');
+      let conditions = [...this.actor.data.data.conditions];
+      conditions[conditionIndex].checked = !!ev.currentTarget.checked;
+      this.actor.update({ data: { conditions }});
+    });
+
+    /*
+      html.find(".condition-input").onchange(ev => {
+        const conditionIndex = $(ev.currentTarget).parent().data('condition-index');
+        let conditions = [...this.actor.data.data.conditions];
+        conditions[conditionIndex].name = ev.currentTarget.value;
+        this.actor.update({ data: { conditions }});
+      });
+    */
+
     // Show/hide item (move/condition/etc) summaries when clicking on item names.
     html.find('.item-list .item .item-name').click(ev => this._onItemNameClick(ev));
 
@@ -295,6 +313,16 @@ export class SimpleActorSheet extends ActorSheet {
 
     // Lets us intercept edits before sending to the server.
     // formData contains name/value pairs from <input> elements etc. in the form.
+
+    let conditions = [...this.actor.data.data.conditions];
+    for (var key in formData) {
+      if (key.indexOf('condition-name-') === 0) {
+        // 'condition-name' is 15 characters long, so .substring(15) gets the number after it
+        conditions[key.substring(15)].name = formData[key];
+        delete formData[key];
+      }
+    }
+    formData['data.conditions'] = conditions;
 
     // Update the Actor
     return this.object.update(formData);

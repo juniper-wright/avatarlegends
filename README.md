@@ -12,7 +12,9 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 * General code audit, to remove MotW leftovers
 * General code quality improvements
-* NPCs should have their own actor type (they have no moves, stats, backgrounds, or growth)
+    * Fix the Techniques tab (it's a copy of the gear group... it's weird)
+    * Remove the gear group entirely -- Conditions are their own thing, as are Bonuses/holds
+    * Clean up code cruft
 * PCs should have somewhere to put demeanor, training, fighting style, connections, notes
 * Techniques should have fields for playbook, training type, approach, learned level
 * Moves should have fields for basic/balance/playbook/needed-for-the-game-to-work, which playbook it belongs to if playbook, associated stat (instead of "rating")
