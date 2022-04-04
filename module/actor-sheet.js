@@ -23,7 +23,7 @@ export class SimpleActorSheet extends ActorSheet {
           initial: "gear",
         },
       ],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
   }
 
@@ -34,10 +34,10 @@ export class SimpleActorSheet extends ActorSheet {
     const context = super.getData();
     context.systemData = context.data.data;
 
-    if (this.actor.data.type === 'hunter') {
-      this._prepareHunterRatings(context);
-      this._prepareHunterIdeals(context);
-      this._prepareHunterItems(context);
+    if (this.actor.data.type === 'companion') {
+      this._prepareCompanionRatings(context);
+      this._prepareCompanionIdeals(context);
+      this._prepareCompanionItems(context);
     }
 
     // This is the object that determines the namespace
@@ -50,7 +50,7 @@ export class SimpleActorSheet extends ActorSheet {
    *
    * @param {Object} sheetData The sheet containing the actor to prepare.
    */
-  _prepareHunterRatings(sheetData) {
+  _prepareCompanionRatings(sheetData) {
     let ratings = sheetData.data.data.ratings;
     for (let key in ratings) {
       if (ratings.hasOwnProperty(key)) {
@@ -67,7 +67,7 @@ export class SimpleActorSheet extends ActorSheet {
    * 
    * @param {Object} sheetData The sheet containing the actor to prepare.
    */
-  _prepareHunterIdeals(sheetData) {
+  _prepareCompanionIdeals(sheetData) {
     // luck is what we're calling the ideal track
     // because copied from MotW
     const luck = sheetData.data.data.luck.value;
@@ -76,13 +76,13 @@ export class SimpleActorSheet extends ActorSheet {
   }
 
   /**
-   * Organize and classify Items for Hunter sheets.
+   * Organize and classify Items for Companion sheets.
    *
    * @param {Object} sheetData The sheet containing the actor to prepare.
    *
    * @return {undefined}
    */
-  _prepareHunterItems(sheetData) {
+  _prepareCompanionItems(sheetData) {
     const actorData = sheetData.actor;
 
     const weapons = [];

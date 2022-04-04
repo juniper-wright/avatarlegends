@@ -32,7 +32,7 @@ Hooks.once("init", async function() {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("avatarlegends", SimpleActorSheet, {
-    types: ["hunter", "bystander", "location", "minion", "monster"],
+    types: ["companion", "bystander", "location", "minion", "monster"],
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);
