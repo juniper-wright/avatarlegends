@@ -9,12 +9,14 @@ There are two ways to install this package:
 * From your Foundry VTT instance's config panel:
     * Navigate to "Game Systems"
     * Click "Install System"
-    * Paste this repo's Manifest URL down below: https://raw.githubusercontent.com/ian-mcdevitt/avatarlegends/main/system.json
-    * Update at your own risk before v1.0.0 (see below)
+    * Paste this repo's manifest url in the "Manifest URL" field: `https://raw.githubusercontent.com/ian-mcdevitt/avatarlegends/main/system.json`
+    * Click "Install"!
 * As a zip file:
-    * Choose a specific release version from the repository
+    * Choose a specific [release](https://github.com/ian-mcdevitt/avatarlegends/releases) from the repository
     * Download the associated zip file
     * Unzip that file into your Foundry VTT instance's `/Data/systems` directory
+
+If the version you installed is prior to v1.0.0, update at your own risk; much of the Actor functionality is in flux.
 
 ## Overview
 
