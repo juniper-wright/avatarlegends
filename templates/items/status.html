@@ -6,11 +6,11 @@
             <div class="flexrow">
                 {{#if isMove}}
                 <div class="resource">
-                    <label>{{localize "SIMPLE.Rating"}}</label>
-                    <select class="select-rating" name="data.rating" data-type="String">
-                        {{#select data.rating}}
-                        {{#each ratings as |rating|}}
-                        <option value="{{rating}}">{{localize (concat "SIMPLE." rating)}}</option>
+                    <label>{{localize "SIMPLE.Statistic"}}</label>
+                    <select class="select-statistic" name="data.statistic" data-type="String">
+                        {{#select data.statistic}}
+                        {{#each statistics as |statistic|}}
+                        <option value="{{statistic}}">{{localize (concat "SIMPLE." statistic)}}</option>
                         {{/each}}
                         <option value="">({{localize "SIMPLE.None"}})</option>
                         {{/select}}

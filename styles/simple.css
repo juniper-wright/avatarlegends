@@ -38,19 +38,19 @@
   height: 100%;
   margin: 0;
 }
-.avatarlegends .rating {
+.avatarlegends .statistic {
   text-align: center;
 }
-.avatarlegends .rating label {
+.avatarlegends .statistic label {
   font-weight: bold;
 }
-.avatarlegends .rating input {
+.avatarlegends .statistic input {
   border: none;
 }
-.avatarlegends .ratings > div {
+.avatarlegends .statistics > div {
   min-width: 25%;
 }
-.avatarlegends .ratings input[type="checkbox"] {
+.avatarlegends .statistics input[type="checkbox"] {
   height: 14px;
   width: 14px;
 }
@@ -62,6 +62,22 @@
   justify-content: space-between;
   margin-bottom: 10px;
   padding: 0 10px;
+}
+.avatarlegends .companion-status.summary {
+  padding: 10px; 
+}
+.avatarlegends .companion-status.summary label:first-child:not(:only-of-type) {
+  margin-bottom: 20px;
+}
+.avatarlegends .companion-status.summary label:last-of-type {
+  letter-spacing: 2.5px;
+}
+.avatarlegends .companion-status.summary .readonlyBalanceTrack {
+  display: flex;
+  justify-content: space-between;
+}
+.avatarlegends .companion-status.summary .readonlyBalanceTrack .track {
+  margin: 0px 5px;
 }
 .avatarlegends .companion-status > div {
   flex: 1;
@@ -75,6 +91,9 @@
 .avatarlegends .companion-status > div.flex3 {
   flex: 3;
   align-items: center;
+}
+.avatarlegends .companion-status.summary > div:not(:first-child) {
+  align-items: center !important;
 }
 .avatarlegends .companion-status label.header {
   font-weight: bold;

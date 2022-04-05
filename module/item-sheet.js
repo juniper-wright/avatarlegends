@@ -29,7 +29,7 @@ export class SimpleItemSheet extends ItemSheet {
     context.systemData = context.data.data;
 
     context.isMove = context.item.data.type === "move";
-    context.ratings = ["creativity", "focus", "harmony", "passion"];
+    context.statistics = ["creativity", "focus", "harmony", "passion"];
 
     // This is the object that determines the namespace
     // seen by the HTML templates.

@@ -8,7 +8,8 @@ export const preloadHandlebarsTemplates = async function() {
   // Define template paths to load
   const templatePaths = [
     "systems/avatarlegends/templates/parts/track.html",
-    "systems/avatarlegends/templates/parts/balance.html"
+    "systems/avatarlegends/templates/parts/balance.html",
+    "systems/avatarlegends/templates/parts/conditions.html"
   ];
 
   // Load the template parts

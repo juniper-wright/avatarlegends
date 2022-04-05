@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["companion", "minorNPC", "majorNPC", "masterNPC", "legendNPC"],
+    "types": ["companion", "summary", "minorNPC", "majorNPC", "masterNPC", "legendNPC"],
     "templates": {
       "creature": {
         "background": "",
@@ -26,7 +26,7 @@
         "min": 0,
         "max": 4
       },
-      "ratings": {
+      "statistics": {
         "creativity": {
           "value": 0,
           "min": -1,
@@ -58,6 +58,7 @@
       "principleYin": "",
       "principleYang": ""
     },
+    "summary": {},
     "minorNPC": {
       "templates": ["creature"],
       "fatigue": {
@@ -182,7 +183,7 @@
     },
     "move": {
       "templates": ["common"],
-      "rating": ""
+      "statistic": ""
     },
     "condition": {
       "templates": ["common"]

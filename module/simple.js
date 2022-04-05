@@ -9,6 +9,7 @@
 import { SimpleActor } from "./actor.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
+import { SummaryActorSheet } from "./summary-actor-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 
 /* -------------------------------------------- */
@@ -33,6 +34,10 @@ Hooks.once("init", async function() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("avatarlegends", SimpleActorSheet, {
     types: ["companion", "minorNPC", "majorNPC", "masterNPC", "legendNPC"],
+    makeDefault: true
+  });
+  Actors.registerSheet("avatarlegends", SummaryActorSheet, {
+    types: ["summary"],
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);

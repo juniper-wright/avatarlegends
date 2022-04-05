@@ -38,7 +38,7 @@ export class SimpleActorSheet extends ActorSheet {
     this._preparePrinciples(context);
     this._prepareItems(context);
     if (this.actor.data.type === 'companion') {
-      this._prepareCompanionRatings(context);
+      this._prepareCompanionStatistics(context);
     }
 
     // This is the object that determines the namespace
@@ -47,17 +47,17 @@ export class SimpleActorSheet extends ActorSheet {
   }
 
   /**
-   * Adds '+' in front of positive ratings.
+   * Adds '+' in front of positive statistics.
    *
    * @param {Object} sheetData The sheet containing the actor to prepare.
    */
-  _prepareCompanionRatings(sheetData) {
-    let ratings = sheetData.data.data.ratings;
-    for (let key in ratings) {
-      if (ratings.hasOwnProperty(key)) {
-        let rating = ratings[key];
-        if (rating.hasOwnProperty("value") && rating.value > 0) {
-          rating.value = "+" + rating.value;
+  _prepareCompanionStatistics(sheetData) {
+    let statistics = sheetData.data.data.statistics;
+    for (let key in statistics) {
+      if (statistics.hasOwnProperty(key)) {
+        let statistic = statistics[key];
+        if (statistic.hasOwnProperty("value") && statistic.value > 0) {
+          statistic.value = "+" + statistic.value;
         }
       }
     }
@@ -111,20 +111,20 @@ export class SimpleActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /**
-   * Handles rolling a rating like "Cool" when clicking on its name.
+   * Handles rolling a statistic like "Creativity" when clicking on its name.
    * @private
    */
-  async _onRatingRoll(ev) {
+  async _onStatisticRoll(ev) {
     ev.preventDefault();
     ev.stopPropagation();
 
     const button = $(ev.currentTarget);
-    const move = button.data("title");
-    const rating = button.data("rating");
+    let title = button.data("title");
+    const statistic = button.data("statistic");
     const principle = button.data("principle");
     let diceExpression;
-    if (rating) {
-      diceExpression = `2d6 + ${this.actor.data.data.ratings[rating].value}`
+    if (statistic) {
+      diceExpression = `2d6 + ${this.actor.data.data.statistics[statistic].value}`
     } else if (principle) {
       diceExpression = `2d6 + ${principle === "Yin" ? 3 - this.actor.data.data.balance.value : this.actor.data.data.balance.value - 3}`;
     }
@@ -139,7 +139,7 @@ export class SimpleActorSheet extends ActorSheet {
       troubled: ["Plead", "Rely on Your Skills and Training"]
     };
     for (var condition in conditionPenalties) {
-      if (this.actor.data.data.conditions[condition] && conditionPenalties[condition].includes(move)) {
+      if (this.actor.data.data.conditions[condition] && conditionPenalties[condition].includes(title)) {
         diceExpression += ` - 2`;
       }
     }
@@ -155,9 +155,8 @@ export class SimpleActorSheet extends ActorSheet {
       tier = game.i18n.localize("SIMPLE.Miss");
     }
 
-    let title = button.data("title");
     if (!title) {
-      title = game.i18n.localize(rating ? `SIMPLE.${rating}` : this.actor.data.data[`principle${principle}`]);
+      title = game.i18n.localize(statistic ? `SIMPLE.${statistic}` : this.actor.data.data[`principle${principle}`]);
     }
 
     const diceTotal = (r?.terms?.[0]?.results?.[0]?.result + r?.terms?.[0]?.results?.[1]?.result);
@@ -210,8 +209,8 @@ export class SimpleActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     if (this.actor.isOwner) {
-      // Roll when clicking the name of a rating, or on a principle's roll button.
-      html.find(".rollable").on("click", this._onRatingRoll.bind(this));
+      // Roll when clicking the name of a statistic, or on a principle's roll button.
+      html.find(".rollable").on("click", this._onStatisticRoll.bind(this));
     }
 
     // Everything below here is only needed if the sheet is editable

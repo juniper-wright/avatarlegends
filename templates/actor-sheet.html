@@ -7,16 +7,16 @@
             <h1 class="charname">
                 <input name="name" type="text" value="{{data.name}}" placeholder="Name"/>
             </h1>
-            {{!-- Ratings: Cool, Tough, etc. --}}
-            <div class="flexrow ratings">
+            {{!-- Statistics: Cool, Tough, etc. --}}
+            <div class="flexrow statistics">
                 {{!-- TODO: Is the order stable? --}}
-                {{#each systemData.ratings as |rating id|}}
-                <div class="rating">
-                    <label><a class="rollable" data-rating="{{id}}">{{localize (concat "SIMPLE." id)}}</a></label>
+                {{#each systemData.statistics as |statistic id|}}
+                <div class="statistic">
+                    <label><a class="rollable" data-statistic="{{id}}">{{localize (concat "SIMPLE." id)}}</a></label>
                     <input
                       type="text"
-                      name="data.ratings.{{id}}.value"
-                      value="{{rating.value}}"
+                      name="data.statistics.{{id}}.value"
+                      value="{{statistic.value}}"
                       data-dtype="Number"/>
                 </div>
                 {{/each}}
@@ -121,9 +121,9 @@
                                 <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                                 <h4 class="item-name">
                                     {{item.name}}
-                                    {{#if (isNonEmptyString item.data.rating)}}
-                                    <a class="chip rollable" data-rating="{{item.data.rating}}" data-title="{{item.name}}">
-                                      {{~localize (concat "SIMPLE." item.data.rating)~}}
+                                    {{#if (isNonEmptyString item.data.statistic)}}
+                                    <a class="chip rollable" data-statistic="{{item.data.statistic}}" data-title="{{item.name}}">
+                                      {{~localize (concat "SIMPLE." item.data.statistic)~}}
                                     </a>
                                     {{/if}}
                                 </h4>
