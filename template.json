@@ -49,11 +49,11 @@
         }
       },
       "conditions": {
-        "Afraid": false,
-        "Angry": false,
-        "Guilty": false,
-        "Insecure": false,
-        "Troubled": false
+        "afraid": false,
+        "angry": false,
+        "guilty": false,
+        "insecure": false,
+        "troubled": false
       },
       "principleYin": "",
       "principleYang": ""

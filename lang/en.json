@@ -29,19 +29,9 @@
   "SIMPLE.WeakHit": "Weak hit",
   "SIMPLE.Miss": "Miss",
 
-  "SIMPLE.Afraid": "Afraid",
-  "SIMPLE.Angry": "Angry",
-  "SIMPLE.Guilty": "Guilty",
-  "SIMPLE.Insecure": "Insecure",
-  "SIMPLE.Troubled": "Troubled",
-  "SIMPLE.AfraidPenalty1": "intimidate",
-  "SIMPLE.AfraidPenalty2": "call someone out",
-  "SIMPLE.AngryPenalty1": "guide and comfort",
-  "SIMPLE.AngryPenalty2": "assess a situation",
-  "SIMPLE.GuiltyPenalty1": "push your luck",
-  "SIMPLE.GuiltyPenalty2": "deny a callout",
-  "SIMPLE.InsecurePenalty1": "trick",
-  "SIMPLE.InsecurePenalty2": "resist shifting your balance",
-  "SIMPLE.TroubledPenalty1": "plead",
-  "SIMPLE.TroubledPenalty2": "rely on your skills and training"
+  "SIMPLE.afraid": "Afraid",
+  "SIMPLE.angry": "Angry",
+  "SIMPLE.guilty": "Guilty",
+  "SIMPLE.insecure": "Insecure",
+  "SIMPLE.troubled": "Troubled"
 }

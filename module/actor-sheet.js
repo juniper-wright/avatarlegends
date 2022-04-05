@@ -131,8 +131,18 @@ export class SimpleActorSheet extends ActorSheet {
     diceExpression = diceExpression.replace('+ -', '- ');
 
     // Modify the dice expression based on conditions
-    console.log('MOVE:', move);
-    console.log('CONDITIONS:', this.actor.data.data.conditions);
+    const conditionPenalties = {
+      afraid: ["Intimidate", "Call Someone Out"],
+      angry: ["Guide and Comfort", "Assess a Situation"],
+      guilty: ["Push Your Luck", "Deny a Callout"],
+      insecure: ["Trick", "Resist Shifting Your Balance"],
+      troubled: ["Plead", "Rely on Your Skills and Training"]
+    };
+    for (var condition in conditionPenalties) {
+      if (this.actor.data.data.conditions[condition] && conditionPenalties[condition].includes(move)) {
+        diceExpression += ` - 2`;
+      }
+    }
 
     const r = await new Roll(diceExpression).evaluate({ async: true });
 
@@ -150,7 +160,7 @@ export class SimpleActorSheet extends ActorSheet {
       title = game.i18n.localize(rating ? `SIMPLE.${rating}` : this.actor.data.data[`principle${principle}`]);
     }
 
-    const diceTotal = (r?.total - r?.terms?.[2]?.number);
+    const diceTotal = (r?.terms?.[0]?.results?.[0]?.result + r?.terms?.[0]?.results?.[1]?.result);
     let result;
     if (diceTotal === 12) {
       result = '<img src="/systems/avatarlegends/images/ui/avatarstate.webp" />';
@@ -187,7 +197,6 @@ export class SimpleActorSheet extends ActorSheet {
       summary.slideUp(200, () => summary.remove());
     } else {
       let div = $(`<div class="item-summary">${item.data.data.description}</div>`);
-      console.log('DESCRIPTION:', item.data.data.description);
       li.append(div.hide());
       div.slideDown(200);
     }

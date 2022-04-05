@@ -24,7 +24,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 * Make a way to view all PCs' fatigue/conditions/balance (for the GM) or all PCs' balance (for PCs)
 * Once the above is done, allow PCs to roll with other PCs' principles
 * Add a way to roll with an NPC's principle?
-* Try to make Conditions actually modify moves?
 * Once the above is done, add a "taken out" indicator if fatigue and conditions are maxed
 * Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
 * A way to track, interact with, or include playbook features
