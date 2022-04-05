@@ -2,7 +2,7 @@
   "name": "avatarlegends",
   "title": "Avatar Legends",
   "description": "A simple system for Avatar Legends.",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "minimumCoreVersion": "0.8.4",
   "compatibleCoreVersion": "9",
   "templateVersion": 1,

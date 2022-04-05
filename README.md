@@ -4,7 +4,17 @@ A simple, unofficial [Foundry VTT](https://foundryvtt.com/) system for [Magpie G
 
 ## Installation
 
-// TODO add install instructions
+There are two ways to install this package:
+
+* From your Foundry VTT instance's config panel:
+    * Navigate to "Game Systems"
+    * Click "Install System"
+    * Paste this repo's Manifest URL down below: https://raw.githubusercontent.com/ian-mcdevitt/avatarlegends/main/system.json
+    * Update at your own risk before v1.0.0 (see below)
+* As a zip file:
+    * Choose a specific release version from the repository
+    * Download the associated zip file
+    * Unzip that file into your Foundry VTT instance's `/Data/systems` directory
 
 ## Overview
 
