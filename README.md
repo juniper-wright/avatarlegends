@@ -2,6 +2,10 @@
 
 A simple, unofficial [Foundry VTT](https://foundryvtt.com/) system for [Magpie Games](https://magpiegames.com/)' [Avatar Legends: The RPG](https://magpiegames.com/pages/avatarrpg).
 
+## Installation
+
+// TODO add install instructions
+
 ## Overview
 
 This system is released under the MIT license described in [LICENSE.txt](LICENSE.txt), and its copyright belongs to its contributors.
@@ -12,16 +16,14 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 * General code audit, to remove MotW leftovers
 * General code quality improvements
-    * Fix the Techniques tab (it's a copy of the gear group... it's weird)
     * Remove the gear group entirely -- Conditions are their own thing, as are Bonuses/holds
     * Clean up code cruft
 * PCs should have somewhere to put demeanor, training, fighting style, connections, notes
 * Techniques should have fields for playbook, training type, approach, learned level
-* Moves should have fields for basic/balance/playbook/needed-for-the-game-to-work, which playbook it belongs to if playbook, associated stat (instead of "rating")
+* Moves should have fields for basic/balance/playbook/game-system, which playbook it belongs to if playbook, associated stat (instead of "rating")
 * Make a way to view all PCs' fatigue/conditions/balance (for the GM) or all PCs' balance (for PCs)
 * Once the above is done, allow PCs to roll with other PCs' principles
 * Add a way to roll with an NPC's principle?
-* Make statuses/conditions a series of booleans
 * Try to make Conditions actually modify moves?
 * Once the above is done, add a "taken out" indicator if fatigue and conditions are maxed
 * Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)

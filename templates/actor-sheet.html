@@ -139,28 +139,27 @@
                 </div>
 
                 {{!-- Techniques Tab --}}
-                <div class="tab moves" data-group="left" data-tab="techniques">
+                <div class="tab techniques" data-group="left" data-tab="techniques">
                     <ol class="inventory-list">
-                    {{#each actor.techniques as |section id|}}
                         <li class="inventory-header flexrow">
                             <h3 class="item">
-                                {{localize (concat "SIMPLE." section.label)}}
+                                {{localize "SIMPLE.Techniques"}}
                             </h3>
                             {{#if ../owner}}
                             <div class="item-controls">
-                                <a class="item-control item-create" title='{{localize "SIMPLE.Add"}}' data-type="{{section.label}}">
+                                <a class="item-control item-create" title='{{localize "SIMPLE.Add"}}' data-type="Techniques">
                                     <i class="fas fa-plus"></i>
                                 </a>
                             </div>
                             {{/if}}
                         </li>
                         <ol class="item-list">
-                        {{#each section.items as |item id|}}
-                            <li class="item flexrow" data-item-id="{{item._id}}">
-                                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                            {{#each actor.techniques}}
+                            <li class="item flexrow" data-item-id="{{this._id}}">
+                                <img src="{{this.img}}" title="{{this.name}}" width="24" height="24"/>
                                 <h4 class="item-name">
-                                    {{item.name}}
-                                    {{#each (split item.data.tags " ") as |tag|}}
+                                    {{this.name}}
+                                    {{#each (split this.data.tags " ") as |tag|}}
                                     <span class="chip">{{tag}}</span>
                                     {{/each}}
                                 </h4>
@@ -169,9 +168,8 @@
                                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                                 </div>
                             </li>
-                        {{/each}}
+                            {{/each}}
                         </ol>
-                    {{/each}}
                     </ol>
                 </div>
 
@@ -201,29 +199,41 @@
 
             {{!-- Tabs --}}
             <div class="tab-content tab-content-right">
-                {{!-- Conditions Tab --}}
+                {{!-- Conditions/Statuses Tab --}}
                 <div class="tab condition" data-group="right" data-tab="condition">
                     <ol class="inventory-list">
-                    {{#each actor.allConditions as |section id|}}
                         <li class="inventory-header flexrow">
                             <h3 class="item">
-                                {{localize (concat "SIMPLE." section.label)}}
+                                {{localize "SIMPLE.Conditions"}}
                             </h3>
-                            {{#if ../owner}}
-                            <div class="item-controls">
-                                <a class="item-control item-create" title='{{localize "SIMPLE.Add"}}' data-type="{{section.label}}">
-                                    <i class="fas fa-plus"></i>
-                                </a>
-                            </div>
-                            {{/if}}
                         </li>
                         <ol class="item-list">
-                        {{#each section.items as |item id|}}
-                            <li class="item flexrow" data-item-id="{{item._id}}">
-                                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                            {{#each systemData.conditions as |checked condition|}}
+                                <li draggable="false" class="item flexrow" data-condition-index="{{condition}}">
+                                    <input type="checkbox" class="condition-checkbox" {{#if checked}}checked{{/if}} />
+                                    <h4 class="item-name">
+                                        {{localize (concat "SIMPLE." condition)}}
+                                        <br />
+                                        -2
+                                        <b>{{localize (concat "SIMPLE." condition "Penalty1")}}</b>
+                                        and
+                                        <b>{{localize (concat "SIMPLE." condition "Penalty2")}}</b>
+                                    </h4>
+                                </li>
+                            {{/each}}
+                        </ol>
+                        <li class="inventory-header flexrow">
+                            <h3 class="item">
+                                {{localize "SIMPLE.Statuses"}}
+                            </h3>
+                        </li>
+                        <ol class="item-list">
+                            {{#each actor.statuses}}
+                            <li class="item flexrow" data-item-id="{{this._id}}">
+                                <img src="{{this.img}}" title="{{this.name}}" width="24" height="24"/>
                                 <h4 class="item-name">
-                                    {{item.name}}
-                                    {{#each (split item.data.tags " ") as |tag|}}
+                                    {{this.name}}
+                                    {{#each (split this.data.tags " ") as |tag|}}
                                     <span class="chip">{{tag}}</span>
                                     {{/each}}
                                 </h4>
@@ -232,9 +242,8 @@
                                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                                 </div>
                             </li>
-                        {{/each}}
+                            {{/each}}
                         </ol>
-                    {{/each}}
                     </ol>
                 </div>
 

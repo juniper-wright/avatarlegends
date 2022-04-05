@@ -2,7 +2,7 @@
 <a class="track" data-value-name="{{valueName}}">
     {{!-- It's a {min, value, max} object. --}}
     {{#times value.max}}
-        <span class="track-element {{#if (lt timesIndex value.value)}}marked subtract{{else}}unmarked{{/if}}">
+        <span class="{{valueName}} track-element {{#if (lt timesIndex value.value)}}marked subtract{{else}}unmarked{{/if}}">
             <i class="{{#if (lt timesIndex value.value)}}fas{{else}}far{{/if}} fa-square"></i>
         </span>
     {{/times}}

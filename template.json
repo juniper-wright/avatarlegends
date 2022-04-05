@@ -48,22 +48,13 @@
           "max": 3
         }
       },
-      "conditions": [{
-        "name": "Afraid",
-        "checked": false
-      },{
-        "name": "Angry",
-        "checked": false
-      },{
-        "name": "Guilty",
-        "checked": false
-      },{
-        "name": "Insecure",
-        "checked": false
-      },{
-        "name": "Troubled",
-        "checked": false
-      }],
+      "conditions": {
+        "Afraid": false,
+        "Angry": false,
+        "Guilty": false,
+        "Insecure": false,
+        "Troubled": false
+      },
       "principleYin": "",
       "principleYang": ""
     },

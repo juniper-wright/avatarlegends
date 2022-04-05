@@ -87,7 +87,6 @@ export class SimpleActorSheet extends ActorSheet {
 
     const techniques = [];
     const statuses = [];
-    const conditions = [];
     const moves = [];
 
     // Iterate through items, allocating to containers
@@ -99,23 +98,14 @@ export class SimpleActorSheet extends ActorSheet {
       else if (i.type === 'status') {
         statuses.push(i);
       }
-      else if (i.type === 'condition') {
-        conditions.push(i);
-      }
       else if (i.type === 'move') {
         moves.push(i);
       }
     }
 
     actorData.moves = moves;
-    actorData.techniques = [
-      {"label": "Techniques", "items": techniques}
-    ];
-    actorData.allConditions = [
-      // Labels must correspond to SIMPLE.${label} localizable strings.
-      {"label": "Statuses", "items": statuses},
-      {"label": "Conditions", "items": conditions}
-    ];
+    actorData.techniques = techniques;
+    actorData.statuses = statuses;
   }
 
   /* -------------------------------------------- */
@@ -129,6 +119,7 @@ export class SimpleActorSheet extends ActorSheet {
     ev.stopPropagation();
 
     const button = $(ev.currentTarget);
+    const move = button.data("title");
     const rating = button.data("rating");
     const principle = button.data("principle");
     let diceExpression;
@@ -138,6 +129,10 @@ export class SimpleActorSheet extends ActorSheet {
       diceExpression = `2d6 + ${principle === "Yin" ? 3 - this.actor.data.data.balance.value : this.actor.data.data.balance.value - 3}`;
     }
     diceExpression = diceExpression.replace('+ -', '- ');
+
+    // Modify the dice expression based on conditions
+    console.log('MOVE:', move);
+    console.log('CONDITIONS:', this.actor.data.data.conditions);
 
     const r = await new Roll(diceExpression).evaluate({ async: true });
 
@@ -175,13 +170,16 @@ export class SimpleActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /**
-   * Shows/hides item (move/condition/etc.) summaries when clicking on item names.
+   * Shows/hides item (move/etc.) summaries when clicking on item names.
    * @private
    */
   _onItemNameClick(event) {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
     let item = this.actor.items.get(li.data("item-id"));
+    if (!item) {
+      return;
+    }
 
     // Toggle summary
     if (li.hasClass("item-expanded")) {
@@ -189,6 +187,7 @@ export class SimpleActorSheet extends ActorSheet {
       summary.slideUp(200, () => summary.remove());
     } else {
       let div = $(`<div class="item-summary">${item.data.data.description}</div>`);
+      console.log('DESCRIPTION:', item.data.data.description);
       li.append(div.hide());
       div.slideDown(200);
     }
@@ -216,21 +215,19 @@ export class SimpleActorSheet extends ActorSheet {
       this.actor.modifyValue(valueName, delta);
     });
 
+    // Handle PCs and NPCs checking their condition checkboxes
     html.find(".condition-checkbox").click(ev => {
-      const conditionIndex = $(ev.currentTarget).parent().data('condition-index');
-      let conditions = [...this.actor.data.data.conditions];
-      conditions[conditionIndex].checked = !!ev.currentTarget.checked;
+      const conditionIndex = $(ev.currentTarget).parent().data('condition-index');;
+      let conditions;
+      if (this.actor.data.type === "companion") {
+        conditions = this.actor.data.data.conditions;
+        conditions[conditionIndex] = !!ev.currentTarget.checked;
+      } else {
+        conditions = [...this.actor.data.data.conditions];
+        conditions[conditionIndex].checked = !!ev.currentTarget.checked;
+      }
       this.actor.update({ data: { conditions }});
     });
-
-    /*
-      html.find(".condition-input").onchange(ev => {
-        const conditionIndex = $(ev.currentTarget).parent().data('condition-index');
-        let conditions = [...this.actor.data.data.conditions];
-        conditions[conditionIndex].name = ev.currentTarget.value;
-        this.actor.update({ data: { conditions }});
-      });
-    */
 
     // Show/hide item (move/condition/etc) summaries when clicking on item names.
     html.find('.item-list .item .item-name').click(ev => this._onItemNameClick(ev));
@@ -314,15 +311,18 @@ export class SimpleActorSheet extends ActorSheet {
     // Lets us intercept edits before sending to the server.
     // formData contains name/value pairs from <input> elements etc. in the form.
 
-    let conditions = [...this.actor.data.data.conditions];
-    for (var key in formData) {
-      if (key.indexOf('condition-name-') === 0) {
-        // 'condition-name' is 15 characters long, so .substring(15) gets the number after it
-        conditions[key.substring(15)].name = formData[key];
-        delete formData[key];
+    // Handle NPCs updating their condition names
+    if (this.actor.data.type !== "companion") {
+      let conditions = [...this.actor.data.data.conditions];
+      for (var key in formData) {
+        if (key.indexOf('condition-name-') === 0) {
+          // 'condition-name' is 15 characters long, so .substring(15) gets the number after it
+          conditions[key.substring(15)].name = formData[key];
+          delete formData[key];
+        }
       }
+      formData['data.conditions'] = conditions;
     }
-    formData['data.conditions'] = conditions;
 
     // Update the Actor
     return this.object.update(formData);
