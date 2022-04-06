@@ -26,21 +26,19 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 ## Changes I'd like to make:
 
-* General code audit, to remove MotW leftovers
-* General code quality improvements
-    * Remove the gear group entirely -- Conditions are their own thing, as are Bonuses/holds
-    * Clean up code cruft
-* PCs should have somewhere to put demeanor, training, fighting style, connections, notes
-* Techniques should have fields for playbook, training type, approach, learned level
-* Moves should have fields for basic/balance/playbook/game-system, which playbook it belongs to if playbook
-* Once the above is done, allow PCs to roll with other PCs' principles
-* Add a way to roll with an NPC's principle?
-* Once the above is done, add a "taken out" indicator if fatigue and conditions are maxed
-* Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
-* A way to track, interact with, or include playbook features
-* Build in a way for the player to change their center
-* Character sheet needs to be way less ugly
-* Have moves' miss/weakhit/stronghit rules show up in chat?
+* v1.0.0 Planned Changes:
+    * Techniques should have fields for playbook, training type, approach, learned level
+    * Allow PCs to roll with other PCs' principles from the Summary actor
+    * Build a form for the player to change their center of balance
+    * General code quality improvements; clean up code cruft
+    * Character sheet needs to be way less ugly
+* Post-v1.0.0 Changes:
+    * Add a way to roll with an NPC's principle
+    * Have moves' miss/weakhit/stronghit rules show up in chat
+    * A way to track, interact with, or include playbook features
+    * Add a "taken out" indicator if fatigue and conditions are maxed
+    * Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
+    * Moves should have fields for basic/balance/playbook/game-system, which playbook it belongs to if playbook
 
 ## Versioning:
 

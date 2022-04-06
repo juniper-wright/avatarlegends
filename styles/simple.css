@@ -64,7 +64,10 @@
   padding: 0 10px;
 }
 .avatarlegends .companion-status.summary {
-  padding: 10px; 
+  padding: 10px;
+}
+.avatarlegends .companion-status.summary div {
+  margin: 0px 3px;
 }
 .avatarlegends .companion-status.summary label:first-child:not(:only-of-type) {
   margin-bottom: 20px;
@@ -77,7 +80,7 @@
   justify-content: space-between;
 }
 .avatarlegends .companion-status.summary .readonlyBalanceTrack .track {
-  margin: 0px 5px;
+  margin: 0px 6px;
 }
 .avatarlegends .companion-status > div {
   flex: 1;
@@ -141,6 +144,20 @@
 }
 .avatarlegends .sheet-body {
   border-top: 1px solid #AAA;
+}
+.avatarlegends .sheet-body nav.sheet-tabs {
+  border-top-width: 0px;
+}
+.avatarlegends .sheet-body.details {
+  padding: 10px 0px;
+}
+.avatarlegends .sheet-body.details div.flexrow {
+  padding: 5px 10px;
+  height: 32px;
+  line-height: 22px;
+}
+.avatarlegends .sheet-body.details div.flexrow > div {
+  margin-right: 5px;
 }
 .avatarlegends .tabs .item {
   line-height: 40px;

@@ -1,11 +1,11 @@
 {
   "SIMPLE.Moves": "Moves",
+  "SIMPLE.Techniques": "Techniques",
+  "SIMPLE.Background": "Backgrounds",
   "SIMPLE.Conditions": "Conditions",
   "SIMPLE.BonusesAndHolds": "Bonuses/Holds",
-  "SIMPLE.Background": "Backgrounds",
+  "SIMPLE.Notes": "Notes",
   "SIMPLE.Description": "Description",
-
-  "SIMPLE.Techniques": "Techniques",
   "SIMPLE.Statuses": "Statuses",
 
   "SIMPLE.Add": "Add",
@@ -15,12 +15,12 @@
   "SIMPLE.Quantity": "Quantity",
   "SIMPLE.Tags": "Tags",
 
+  "SIMPLE.None": "None",
   "SIMPLE.creativity": "Creativity",
   "SIMPLE.focus": "Focus",
   "SIMPLE.harmony": "Harmony",
   "SIMPLE.passion": "Passion",
 
-  "SIMPLE.None": "None",
   "SIMPLE.Fatigue": "Fatigue",
   "SIMPLE.Balance": "Balance",
   "SIMPLE.Growth": "Growth",
@@ -33,5 +33,12 @@
   "SIMPLE.angry": "Angry",
   "SIMPLE.guilty": "Guilty",
   "SIMPLE.insecure": "Insecure",
-  "SIMPLE.troubled": "Troubled"
+  "SIMPLE.troubled": "Troubled",
+
+  "SIMPLE.waterbending": "Water",
+  "SIMPLE.earthbending": "Earth",
+  "SIMPLE.airbending": "Air",
+  "SIMPLE.firebending": "Fire",
+  "SIMPLE.weapons": "Weapons",
+  "SIMPLE.technology": "Technology"
 }
