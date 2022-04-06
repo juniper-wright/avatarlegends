@@ -1,0 +1,53 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- Companion Status --}}
+    {{#each companions as |companion index|}}
+    <section class="companion-status flexrow summary">
+        <div style="flex: 2">
+            {{#if (eq index 0)}}
+            <label class="header">&nbsp;</label>
+            {{/if}}
+            <label class="header">&nbsp;</label>
+            {{companion.name}}
+        </div>
+        <div>
+            {{#if (eq index 0)}}
+            <label class="header">{{localize "SIMPLE.Fatigue"}}</label>
+            {{/if}}
+            <label class="header">&nbsp;</label>
+            <div>
+                {{> "systems/avatarlegends/templates/parts/track.html"
+                    valueName="fatigue" value=companion.data.fatigue}}
+            </div>
+        </div>
+        <div>
+            {{#if (eq index 0)}}
+            <label class="header">{{localize "SIMPLE.Conditions"}}</label>
+            {{/if}}
+            <label class="header condition-markers">A A G I T</label>
+            <div>
+                {{> "systems/avatarlegends/templates/parts/conditions.html"
+                    conditions=companion.data.conditions}}
+            </div>
+        </div>
+        <div style="flex: 3">
+            {{#if (eq index 0)}}
+            <label class="header">{{localize "SIMPLE.Balance"}}</label>
+            {{/if}}
+            <label class="header">&nbsp;</label>
+            <div class="readonlyBalanceTrack">
+                {{#if owner}}
+                <button class="rollable balanceButton" data-principle="Yin">{{companion.data.principleYinFormatted}}</button>
+                {{/if}}
+                <span class="balance-input">{{companion.data.principleYin}}</span>
+                {{> "systems/avatarlegends/templates/parts/balance.html"
+                    valueName="balance" value=companion.data.balance}}
+                <span class="balance-input">{{companion.data.principleYang}}</span>
+                {{#if owner}}
+                <button class="rollable balanceButton" data-principle="Yang">{{companion.data.principleYangFormatted}}</button>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+    {{/each}}
+</form>

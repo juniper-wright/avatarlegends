@@ -32,8 +32,10 @@ export class SimpleActorSheet extends ActorSheet {
   /** @inheritdoc */
   getData() {
     const context = super.getData();
-    context.systemData = context.data.data;
+    context.actor = context.data.data;
+    console.log('ACTOR:', context.actor);
     context.isCompanion = this.actor.data.type === "companion";
+    context.trainings = ["waterbending", "airbending", "earthbending", "firebending", "weapons", "technology"];
 
     this._preparePrinciples(context);
     this._prepareItems(context);
@@ -331,6 +333,8 @@ export class SimpleActorSheet extends ActorSheet {
       }
       formData['data.conditions'] = conditions;
     }
+
+    console.log('FORM DATA:', formData);
 
     // Update the Actor
     return this.object.update(formData);

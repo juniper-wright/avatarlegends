@@ -10,7 +10,7 @@
             {{!-- Statistics: Cool, Tough, etc. --}}
             <div class="flexrow statistics">
                 {{!-- TODO: Is the order stable? --}}
-                {{#each systemData.statistics as |statistic id|}}
+                {{#each actor.statistics as |statistic id|}}
                 <div class="statistic">
                     <label><a class="rollable" data-statistic="{{id}}">{{localize (concat "SIMPLE." id)}}</a></label>
                     <input
@@ -21,7 +21,7 @@
                 </div>
                 {{/each}}
                 {{#unless isCompanion}}
-                    {{#each systemData.conditions}}
+                    {{#each actor.conditions}}
                     <div data-condition-index="{{@index}}">
                         <input type="checkbox" class="condition-checkbox" {{#if this.checked}}checked{{/if}} />
                         <input type="text" name="condition-name-{{@index}}" class="balance-input" value="{{this.name}}" />
@@ -38,7 +38,7 @@
             <label class="header">{{localize "SIMPLE.Fatigue"}}</label>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
-                    valueName="fatigue" value=systemData.fatigue}}
+                    valueName="fatigue" value=actor.fatigue}}
             </div>
         </div>
         {{#if isCompanion}}
@@ -46,14 +46,14 @@
             <label class="header">{{localize "SIMPLE.Balance"}}</label>
             <div>
                 {{#if owner}}
-                <button class="rollable balanceButton" data-principle="Yin">{{systemData.principleYinFormatted}}</button>
+                <button class="rollable balanceButton" data-principle="Yin">{{actor.principleYinFormatted}}</button>
                 {{/if}}
-                <input class="balance-input" type="text" name="data.principleYin" value="{{systemData.principleYin}}" data-dtype="String" />
+                <input class="balance-input" type="text" name="data.principleYin" value="{{actor.principleYin}}" data-dtype="String" />
                 {{> "systems/avatarlegends/templates/parts/balance.html"
-                    valueName="balance" value=systemData.balance}}
-                <input class="balance-input" type="text" name="data.principleYang" value="{{systemData.principleYang}}" data-dtype="String" />
+                    valueName="balance" value=actor.balance}}
+                <input class="balance-input" type="text" name="data.principleYang" value="{{actor.principleYang}}" data-dtype="String" />
                 {{#if owner}}
-                <button class="rollable balanceButton" data-principle="Yang">{{systemData.principleYangFormatted}}</button>
+                <button class="rollable balanceButton" data-principle="Yang">{{actor.principleYangFormatted}}</button>
                 {{/if}}
             </div>
         </div>
@@ -61,7 +61,7 @@
             <label class="header">{{localize "SIMPLE.Growth"}}</label>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
-                    valueName="experience" value=systemData.experience}}
+                    valueName="experience" value=actor.experience}}
             </div>
         </div>
         {{else}}
@@ -69,14 +69,35 @@
             <label class="header">{{localize "SIMPLE.Balance"}}</label>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
-                    valueName="balance" value=systemData.balance}}
-                <input class="balance-input" type="text" name="data.principle" value="{{systemData.principle}}" data-dtype="String" />
+                    valueName="balance" value=actor.balance}}
+                <input class="balance-input" type="text" name="data.principle" value="{{actor.principle}}" data-dtype="String" />
                 {{#if owner}}
-                <button class="balanceButton" data-principle="Yang">{{systemData.principleFormatted}}</button>
+                <button class="balanceButton" data-principle="Yang">{{actor.principleFormatted}}</button>
                 {{/if}}
             </div>
         </div>
         {{/if}}
+    </section>
+
+    {{!-- Demeanor, Training, Fighting Style --}}
+    <section class="sheet-body details">
+        <div class="flexrow">
+            <b>Training:</b>
+            <div style="flex: 3">
+                {{#each trainings}}
+                <input type="radio" name="data.training" value="{{this}}" id="training-{{this}}" {{#if (eq ../actor.training this)}}checked{{/if}} />
+                <label for="training-{{this}}">{{localize (concat "SIMPLE." this)}}</label>
+                {{/each}}
+            </div>
+        </div>
+        <div class="flexrow">
+            <b>Fighting Style:</b>
+            <input style="flex: 3" type="text" name="data.fightingStyle" value="{{actor.fightingStyle}}" />
+        </div>
+        <div class="flexrow">
+            <b>Demeanor:</b>
+            <input style="flex: 3" type="text" name="data.demeanor" value="{{actor.demeanor}}" />
+        </div>
     </section>
 
     {{!-- Tab clusters --}}
@@ -175,13 +196,13 @@
 
                 {{!-- Background Tab --}}
                 <div class="tab background" data-group="left" data-tab="background">
-                    {{editor content=systemData.background target="data.background" button=true owner=owner editable=editable}}
+                    {{editor content=actor.background target="data.background" button=true owner=owner editable=editable}}
                 </div>
             </div>
         </div>
 
         {{!-- Visual separation between tabs. --}}
-        <div style="flex: 0;">&nbsp;&nbsp;&nbsp;</div>
+        <div style="flex: 0">&nbsp;&nbsp;&nbsp;</div>
 
         {{!-- Right Tabs --}}
         <div>
@@ -194,6 +215,9 @@
                 {{/if}}
                 <a class="item" data-tab="holds">
                     {{localize "SIMPLE.BonusesAndHolds"}}
+                </a>
+                <a class="item" data-tab="notes">
+                    {{localize "SIMPLE.Notes"}}
                 </a>
             </nav>
 
@@ -208,7 +232,7 @@
                             </h3>
                         </li>
                         <ol class="item-list">
-                            {{#each systemData.conditions as |checked condition|}}
+                            {{#each actor.conditions as |checked condition|}}
                                 <li draggable="false" class="item flexrow" data-condition-index="{{condition}}">
                                     <input type="checkbox" class="condition-checkbox" {{#if checked}}checked{{/if}} />
                                     <h4 class="item-name">
@@ -246,7 +270,11 @@
                 {{!-- TODO: Add and remove elements --}}
                 {{!-- TODO: May be worth making these full items so we can have a compendium of them --}}
                 <div class="tab holds" data-group="right" data-tab="holds">
-                    {{editor content=systemData.holds target="data.holds" button=true owner=owner editable=editable}}
+                    {{editor content=actor.holds target="data.holds" button=true owner=owner editable=editable}}
+                </div>
+
+                <div class="tab notes" data-group="right" data-tab="notes">
+                    {{editor content=actor.notes target="data.notes" button=true owner=owner editable=editable}}
                 </div>
             </div>
         </div>

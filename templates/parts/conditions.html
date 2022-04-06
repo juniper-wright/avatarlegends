@@ -1,0 +1,8 @@
+{{!-- Example usage: conditions=data.conditions --}}
+<a class="track">
+    {{#each conditions as |condition index|}}
+        <span class="track-element {{#if condition}}marked{{else}}unmarked{{/if}}">
+            <i class="{{#if condition}}fas{{else}}far{{/if}} fa-square"></i>
+        </span>
+    {{/each}}
+</a>

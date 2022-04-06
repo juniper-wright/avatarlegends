@@ -18,15 +18,17 @@
                         {{/select}}
                     </select>
                 </div>
+                {{!--
                 {{else}}
-                <div class="resource flex2">
-                    <label>{{localize "SIMPLE.Tags"}}</label>
-                    <input type="text" name="data.tags" value="{{systemData.tags}}" data-dtype="String"/>
-                </div>
-                <div class="resource flex1">
-                    <label>{{localize "SIMPLE.Quantity"}}</label>
-                    <input type="text" name="data.quantity" value="{{systemData.quantity}}" data-dtype="Number"/>
-                </div>
+                    <div class="resource flex2">
+                        <label>{{localize "SIMPLE.Tags"}}</label>
+                        <input type="text" name="data.tags" value="{{systemData.tags}}" data-dtype="String"/>
+                    </div>
+                    <div class="resource flex1">
+                        <label>{{localize "SIMPLE.Quantity"}}</label>
+                        <input type="text" name="data.quantity" value="{{systemData.quantity}}" data-dtype="Number"/>
+                    </div>
+                --}}
                 {{/if}}
             </div>
         </div>
