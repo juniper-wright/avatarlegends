@@ -21,14 +21,16 @@
   flex: 0 0 120px;
   height: 120px;
   margin-right: 10px;
+  object-fit: cover;
+  object-position: 50% 0;
 }
 .avatarlegends .sheet-header .header-fields {
   flex: 1;
 }
 .avatarlegends .sheet-header h1.charname {
-  height: 55px;
+  height: 60px;
   padding: 0px;
-  margin: 5px 0;
+  margin: 0px 0px 5px 0px;
   border-bottom: 0;
 }
 .avatarlegends .sheet-header h1.charname input {
@@ -48,12 +50,34 @@
 .avatarlegends .statistic input {
   border: none;
 }
+.avatarlegends.statistic {
+  font-size: 16px !important;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: #002d5d;
+}
+.avatarlegends.result {
+  font-weight: bold;
+  font-size: 16px;
+  text-stroke: 1px black;
+  display: block;
+  margin-bottom: 6px;
+}
+.avatarlegends.stronghit {
+  color: #33cc33;
+}
+.avatarlegends.miss {
+  color: #ff3333;
+}
 .avatarlegends .statistics > div {
   min-width: 25%;
 }
 .avatarlegends .statistics input[type="checkbox"] {
   height: 14px;
   width: 14px;
+}
+.avatarlegends div.center {
+  align-items: center;
 }
 .avatarlegends .companion-status {
   overflow: hidden;
@@ -83,6 +107,12 @@
 .avatarlegends .companion-status.summary .readonlyBalanceTrack .track {
   margin: 0px 6px;
 }
+.avatarlegends .companion-status.summary .readonlyBalanceTrack .track .track-element:hover {
+  text-shadow: none;
+}
+.avatarlegends .companion-status.summary > div:not(:first-child) {
+  align-items: center !important;
+}
 .avatarlegends .companion-status > div {
   flex: 1;
   display: flex;
@@ -91,12 +121,6 @@
 }
 .avatarlegends .companion-status > div:nth-child(3) {
   align-items: flex-end;
-}
-.avatarlegends div.center {
-  align-items: center;
-}
-.avatarlegends .companion-status.summary > div:not(:first-child) {
-  align-items: center !important;
 }
 .avatarlegends .companion-status label.header {
   font-weight: bold;
@@ -136,15 +160,11 @@
   padding: 0px;
 }
 .avatarlegends .balanceButton:active {
-  background-color: rgba(0,0,0,0.3);
-  border-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 .avatarlegends .track {
   white-space: nowrap;
-}
-.avatarlegends .sheet-header .profile-img {
-  object-fit: cover;
-  object-position: 50% 0;
 }
 .avatarlegends .sheet-body {
   border-top: 1px solid #AAA;
@@ -155,13 +175,6 @@
 .avatarlegends .sheet-body.details {
   padding: 10px 0px;
 }
-.gaprow {
-  margin: 3px 0px;
-}
-.avatarlegends .item-list .item img.mastery {
-  background-color: transparent;
-  border-width: 0px;
-}
 .avatarlegends .sheet-body.details div.flexrow {
   padding: 5px 10px;
   height: 32px;
@@ -169,6 +182,9 @@
 }
 .avatarlegends .sheet-body.details div.flexrow > div {
   margin-right: 5px;
+}
+.avatarlegends .gaprow {
+  margin: 3px 0px;
 }
 .avatarlegends .tabs .item {
   line-height: 40px;
@@ -243,6 +259,10 @@
   flex: 0 0 24px;
   margin-right: 5px;
 }
+.avatarlegends .item-list .item img.mastery {
+  background-color: transparent;
+  border-width: 0px;
+}
 .avatarlegends .item-list .item-name {
   margin: 0;
   color: #191813;
@@ -291,23 +311,4 @@
 .avatarlegends.sheet.item {
   min-width: 460px;
   min-height: 400px;
-}
-.avatarlegends.statistic {
-  font-size: 16px !important;
-  font-variant: small-caps;
-  font-weight: bold;
-  color: #002d5d;
-}
-.avatarlegends.result {
-  font-weight: bold;
-  font-size: 16px;
-  text-stroke: 1px black;
-  display: block;
-  margin-bottom: 6px;
-}
-.avatarlegends.stronghit {
-  color: #33cc33;
-}
-.avatarlegends.miss {
-  color: #ff3333;
 }

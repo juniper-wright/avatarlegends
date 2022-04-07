@@ -28,7 +28,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 * v1.0.0 Planned Changes:
     * General code quality improvements; clean up code cruft
-        * Actually use the .less file
     * Character sheet needs to be way less ugly
 * Post-v1.0.0 Changes:
     * Add a way to roll with an NPC's principle
