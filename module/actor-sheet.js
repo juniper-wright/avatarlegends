@@ -250,6 +250,9 @@ export class SimpleActorSheet extends ActorSheet {
     // Add Inventory Item
     html.find('.item-create').click(ev => {
       ev.preventDefault();
+      const button = $(ev.currentTarget);
+      const approach = button.data('approach');
+      const data = approach ? { approach } : {};
 
       // TODO: Consolidate this with the similar list in simple.js.
       const DEFAULT_MOVE_ICON = "icons/svg/book.svg"
@@ -271,7 +274,7 @@ export class SimpleActorSheet extends ActorSheet {
         name: game.i18n.format("SIMPLE.NewItem"),
         type: entry.type,
         img: entry.img,
-        data: {}
+        data
       };
       return this.actor.createEmbeddedDocuments("Item", [itemData]);
     });
@@ -338,8 +341,6 @@ export class SimpleActorSheet extends ActorSheet {
       }
       formData['data.conditions'] = conditions;
     }
-
-    console.log('FORM DATA:', formData);
 
     // Update the Actor
     return this.object.update(formData);
