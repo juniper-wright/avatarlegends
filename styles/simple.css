@@ -107,8 +107,9 @@
 .avatarlegends .companion-status.summary .readonlyBalanceTrack .track {
   margin: 0px 6px;
 }
-.avatarlegends .companion-status.summary .readonlyBalanceTrack .track .track-element:hover {
+.avatarlegends .companion-status.summary .track:hover {
   text-shadow: none;
+  cursor: auto;
 }
 .avatarlegends .companion-status.summary > div:not(:first-child) {
   align-items: center !important;
