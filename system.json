@@ -2,7 +2,7 @@
   "name": "avatarlegends",
   "title": "Avatar Legends",
   "description": "An unofficial system for Avatar Legends: The Roleplaying Game.",
-  "version": "0.3.0",
+  "version": "0.9.3",
   "minimumCoreVersion": "0.8.4",
   "compatibleCoreVersion": "9",
   "templateVersion": 1,
