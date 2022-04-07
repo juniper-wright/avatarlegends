@@ -124,10 +124,6 @@ Hooks.once("init", async function() {
     return parts;
   });
 
-  Handlebars.registerHelper('removePlaybook', function(str) {
-    return str.substring(0, str.indexOf(', the '));
-  });
-
   // Preload template partials.
   await preloadHandlebarsTemplates();
 

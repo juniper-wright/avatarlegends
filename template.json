@@ -19,6 +19,7 @@
     },
     "companion": {
       "templates": ["creature"],
+      "playbook": "",
       "balance": {
         "value": 3,
         "min": 0,
@@ -183,7 +184,11 @@
       }
     },
     "technique": {
-      "templates": ["common"]
+      "templates": ["common"],
+      "playbook": "basic",
+      "training": "",
+      "approach": "",
+      "learnedLevel": ""
     },
     "move": {
       "templates": ["common"],

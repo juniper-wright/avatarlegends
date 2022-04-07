@@ -1,12 +1,11 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}"/>
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         <div class="header-fields">
             <h1 class="charname">
-                <input name="name" type="text" value="{{data.name}}" placeholder="Name"/>
+                <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
             </h1>
-            <div class="flexrow">
-                {{#if isMove}}
+            {{#if isMove}}
                 <div class="resource">
                     <label>{{localize "SIMPLE.Statistic"}}</label>
                     <select class="select-statistic" name="data.statistic" data-type="String">
@@ -18,19 +17,34 @@
                         {{/select}}
                     </select>
                 </div>
-                {{!--
-                {{else}}
-                    <div class="resource flex2">
-                        <label>{{localize "SIMPLE.Tags"}}</label>
-                        <input type="text" name="data.tags" value="{{systemData.tags}}" data-dtype="String"/>
-                    </div>
-                    <div class="resource flex1">
-                        <label>{{localize "SIMPLE.Quantity"}}</label>
-                        <input type="text" name="data.quantity" value="{{systemData.quantity}}" data-dtype="Number"/>
-                    </div>
-                --}}
-                {{/if}}
-            </div>
+            {{/if}}
+            {{#if isTechnique}}
+                <div class="flexrow gaprow" style="line-height: 22px;">
+                    <label>{{localize "SIMPLE.Playbook"}}</label>
+                    <input style="flex: 2" type="text" name="data.playbook" value="{{systemData.playbook}}" data-dtype="String" />
+                </div>
+                <div class="flexrow gaprow" style="line-height: 22px;">
+                    <label>{{localize "SIMPLE.Approach"}}</label>
+                    <select style="flex: 2" class="select-statistic" name="data.approach" data-type="String">
+                        {{#select systemData.approach}}
+                        {{#each approaches as |approach|}}
+                        <option value="{{approach}}">{{localize (concat "SIMPLE." approach)}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="flexrow gaprow" style="line-height: 22px;">
+                    <label>{{localize "SIMPLE.Training"}}</label>
+                    <select style="flex: 2" class="select-statistic" name="data.training" data-type="String">
+                        {{#select systemData.training}}
+                        {{#each trainings as |training|}}
+                        <option value="{{training}}">{{localize (concat "SIMPLE." training)}}</option>
+                        {{/each}}
+                        <option value="">({{localize "SIMPLE.None"}})</option>
+                        {{/select}}
+                    </select>
+                </div>
+            {{/if}}
         </div>
     </header>
 

@@ -5,9 +5,14 @@
         <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100"/>
         <div class="header-fields">
             <h1 class="charname">
-                <input name="name" type="text" value="{{data.name}}" placeholder="Name"/>
+                {{#if isCompanion}}
+                <input class="half-input" name="name" type="text" value="{{data.name}}" placeholder="Name" />
+                <input class="half-input" name="data.playbook" type="text" value="{{actor.playbook}}" placeholder="Playbook" />
+                {{else}}
+                <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
+                {{/if}}
             </h1>
-            {{!-- Statistics: Cool, Tough, etc. --}}
+            {{!-- Statistics: Creativity, Focus, etc. --}}
             <div class="flexrow statistics">
                 {{!-- TODO: Is the order stable? --}}
                 {{#each actor.statistics as |statistic id|}}
@@ -34,7 +39,7 @@
 
     {{!-- Companion Status --}}
     <section class="companion-status flexrow">
-        <div>
+        <div style="flex: 2">
             <label class="header">{{localize "SIMPLE.Fatigue"}}</label>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
@@ -42,7 +47,7 @@
             </div>
         </div>
         {{#if isCompanion}}
-        <div class="flex3">
+        <div style="flex: 7" class="center">
             <label class="header">{{localize "SIMPLE.Balance"}}</label>
             <div>
                 {{#if owner}}
@@ -57,7 +62,7 @@
                 {{/if}}
             </div>
         </div>
-        <div>
+        <div style="flex: 2">
             <label class="header">{{localize "SIMPLE.Growth"}}</label>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
@@ -162,9 +167,10 @@
                 {{!-- Techniques Tab --}}
                 <div class="tab techniques" data-group="left" data-tab="techniques">
                     <ol class="inventory-list">
+                        {{#each actor.techniques as |approach id|}}
                         <li class="inventory-header flexrow">
                             <h3 class="item">
-                                {{localize "SIMPLE.Techniques"}}
+                                {{localize (concat "SIMPLE." id)}}
                             </h3>
                             {{#if ../owner}}
                             <div class="item-controls">
@@ -175,7 +181,7 @@
                             {{/if}}
                         </li>
                         <ol class="item-list">
-                            {{#each actor.techniques}}
+                            {{#each (lookup ../actor.techniques id)}}
                             <li class="item flexrow" data-item-id="{{this._id}}">
                                 <img src="{{this.img}}" title="{{this.name}}" width="24" height="24"/>
                                 <h4 class="item-name">
@@ -191,6 +197,7 @@
                             </li>
                             {{/each}}
                         </ol>
+                        {{/each}}
                     </ol>
                 </div>
 

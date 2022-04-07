@@ -8,7 +8,7 @@
             <label class="header">&nbsp;</label>
             {{/if}}
             <label class="header">&nbsp;</label>
-            {{companion.name}}
+            {{companion.name}}, {{companion.data.playbook}}
         </div>
         <div>
             {{#if (eq index 0)}}
@@ -39,12 +39,12 @@
                 {{#if owner}}
                 <button class="rollable balanceButton" data-principle="Yin">{{companion.data.principleYinFormatted}}</button>
                 {{/if}}
-                <span data-name="{{concat (removePlaybook companion.name) '\'s ' companion.data.principleYin}}" data-value="{{sub 3 companion.data.balance.value}}" class="principle-button balance-input">
+                <span data-name="{{concat companion.name '\'s ' companion.data.principleYin}}" data-value="{{sub 3 companion.data.balance.value}}" class="principle-button balance-input">
                     {{companion.data.principleYin}}
                 </span>
                 {{> "systems/avatarlegends/templates/parts/balance.html"
                     valueName="balance" value=companion.data.balance}}
-                <span data-name="{{concat (removePlaybook companion.name) '\'s ' companion.data.principleYang}}" data-value="{{sub companion.data.balance.value 3}}" class="principle-button balance-input">
+                <span data-name="{{concat companion.name '\'s ' companion.data.principleYang}}" data-value="{{sub companion.data.balance.value 3}}" class="principle-button balance-input">
                     {{companion.data.principleYang}}
                 </span>
                 {{#if owner}}

@@ -8,6 +8,10 @@
   "SIMPLE.Description": "Description",
   "SIMPLE.Statuses": "Statuses",
 
+  "SIMPLE.Approach": "Approach",
+  "SIMPLE.Playbook": "Playbook",
+  "SIMPLE.Training": "Training",
+
   "SIMPLE.Add": "Add",
   "SIMPLE.NewItem": "New Item",
 
@@ -20,6 +24,9 @@
   "SIMPLE.focus": "Focus",
   "SIMPLE.harmony": "Harmony",
   "SIMPLE.passion": "Passion",
+  "SIMPLE.d&m": "Defend & Maneuver",
+  "SIMPLE.a&a": "Advance & Attack",
+  "SIMPLE.e&o": "Evade & Observe",
 
   "SIMPLE.Fatigue": "Fatigue",
   "SIMPLE.Balance": "Balance",
@@ -35,10 +42,14 @@
   "SIMPLE.insecure": "Insecure",
   "SIMPLE.troubled": "Troubled",
 
-  "SIMPLE.waterbending": "Water",
-  "SIMPLE.earthbending": "Earth",
-  "SIMPLE.airbending": "Air",
-  "SIMPLE.firebending": "Fire",
+  "SIMPLE.waterbending": "Waterbending",
+  "SIMPLE.earthbending": "Earthbending",
+  "SIMPLE.airbending": "Airbending",
+  "SIMPLE.firebending": "Firebending",
+  "SIMPLE.water": "Water",
+  "SIMPLE.earth": "Earth",
+  "SIMPLE.air": "Air",
+  "SIMPLE.fire": "Fire",
   "SIMPLE.weapons": "Weapons",
   "SIMPLE.technology": "Technology"
 }

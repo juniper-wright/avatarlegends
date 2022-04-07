@@ -34,7 +34,7 @@ export class SimpleActorSheet extends ActorSheet {
     const context = super.getData();
     context.actor = context.data.data;
     context.isCompanion = this.actor.data.type === "companion";
-    context.trainings = ["waterbending", "airbending", "earthbending", "firebending", "weapons", "technology"];
+    context.trainings = ["water", "air", "earth", "fire", "weapons", "technology"];
 
     this._preparePrinciples(context);
     this._prepareItems(context);
@@ -105,7 +105,11 @@ export class SimpleActorSheet extends ActorSheet {
     }
 
     actorData.moves = moves;
-    actorData.techniques = techniques;
+    actorData.techniques = {
+      'd&m': techniques.filter((technique) => technique.data.approach === "d&m"),
+      'a&a': techniques.filter((technique) => technique.data.approach === "a&a"),
+      'e&o': techniques.filter((technique) => technique.data.approach === "e&o")
+    };
     actorData.statuses = statuses;
   }
 
