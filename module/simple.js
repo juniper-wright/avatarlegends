@@ -85,7 +85,6 @@ Hooks.once("init", async function() {
     return a >= b;
   });
   Handlebars.registerHelper('eq', function(a, b) {
-    console.log('COMPARING:', a, b, a === b);
     return a === b;
   });
 

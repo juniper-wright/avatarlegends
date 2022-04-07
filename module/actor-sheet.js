@@ -33,7 +33,6 @@ export class SimpleActorSheet extends ActorSheet {
   getData() {
     const context = super.getData();
     context.actor = context.data.data;
-    console.log('ACTOR:', context.actor);
     context.isCompanion = this.actor.data.type === "companion";
     context.trainings = ["waterbending", "airbending", "earthbending", "firebending", "weapons", "technology"];
 
