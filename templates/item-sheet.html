@@ -33,7 +33,7 @@
                     <label>{{localize "SIMPLE.Mastery"}}</label>
                     <select style="flex: 2" class="select-statistic" name="data.mastery" data-type="String">
                         {{#select systemData.mastery}}
-                        {{#each masterys as |mastery|}}
+                        {{#each masteries as |mastery|}}
                         <option value="{{mastery}}">{{localize (concat "SIMPLE." mastery)}}</option>
                         {{/each}}
                         <option value="none">({{localize "SIMPLE.None"}})</option>
