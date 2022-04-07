@@ -84,8 +84,15 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('gte', function(a, b) {
     return a >= b;
   });
+
+  // Simple comparison operator
   Handlebars.registerHelper('eq', function(a, b) {
     return a === b;
+  });
+
+  // Subtraction because Handlebars has ZERO features
+  Handlebars.registerHelper('sub', function(a, b) {
+    return a - b;
   });
 
   /**
@@ -115,6 +122,10 @@ Hooks.once("init", async function() {
       return [];
     }
     return parts;
+  });
+
+  Handlebars.registerHelper('removePlaybook', function(str) {
+    return str.substring(0, str.indexOf(', the '));
   });
 
   // Preload template partials.

@@ -124,6 +124,10 @@
 .avatarlegends .balance-input:only-of-type {
   text-align: center !important;
 }
+.avatarlegends .principle-button:hover {
+  cursor: pointer;
+  text-shadow: 0 0 10px red;
+}
 .avatarlegends .balanceButton {
   width: 30px;
   height: 24px;

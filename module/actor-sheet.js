@@ -120,9 +120,9 @@ export class SimpleActorSheet extends ActorSheet {
     ev.stopPropagation();
 
     const button = $(ev.currentTarget);
-    let title = button.data("title");
     const statistic = button.data("statistic");
     const principle = button.data("principle");
+    let title = button.data("title") || game.i18n.localize(statistic ? `SIMPLE.${statistic}` : this.actor.data.data[`principle${principle}`]);
     let diceExpression;
     if (statistic) {
       diceExpression = `2d6 + ${this.actor.data.data.statistics[statistic].value}`
@@ -154,10 +154,6 @@ export class SimpleActorSheet extends ActorSheet {
       tier = game.i18n.localize("SIMPLE.WeakHit");
     } else {
       tier = game.i18n.localize("SIMPLE.Miss");
-    }
-
-    if (!title) {
-      title = game.i18n.localize(statistic ? `SIMPLE.${statistic}` : this.actor.data.data[`principle${principle}`]);
     }
 
     const diceTotal = (r?.terms?.[0]?.results?.[0]?.result + r?.terms?.[0]?.results?.[1]?.result);
