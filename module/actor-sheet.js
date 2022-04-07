@@ -224,6 +224,12 @@ export class SimpleActorSheet extends ActorSheet {
       this.actor.modifyValue(valueName, delta);
     });
 
+    // Handle specifically right-clicks on the balance track and update the actor's center
+    html.find(".balance-track-element").on("contextmenu", ev => {
+      const center = $(ev.currentTarget).data("value");
+      this.actor.update({ data: { balance: { center }}});
+    });
+
     // Handle PCs and NPCs checking their condition checkboxes
     html.find(".condition-checkbox").click(ev => {
       const conditionIndex = $(ev.currentTarget).parent().data('condition-index');;

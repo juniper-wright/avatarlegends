@@ -29,7 +29,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 * v1.0.0 Planned Changes:
     * Techniques should have fields for playbook, training type, approach, learned level
     * Allow PCs to roll with other PCs' principles from the Summary actor
-    * Build a form for the player to change their center of balance
     * General code quality improvements; clean up code cruft
     * Character sheet needs to be way less ugly
 * Post-v1.0.0 Changes:

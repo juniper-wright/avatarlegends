@@ -1,9 +1,9 @@
-{{!-- Example usage: valueName="fatigue" value=data.fatigue --}}
+{{!-- Example usage: valueName="balance" value=data.balance --}}
 <a class="track" data-value-name="{{valueName}}">
     {{!-- It's a {min, value, max} object. --}}
     {{#times value.max}}
         {{!-- Only apply .track-element (which makes it clickable) if it's not marked --}}
-        <span class="{{#if (eq timesIndex value.value)}}{{else}}track-element{{/if}} {{#if (lt timesIndex value.value)}}subtract{{/if}} {{#if (eq timesIndex 3)}}center{{/if}}">
+        <span data-value={{this.timesIndex}} class="balance-track-element {{#if (eq timesIndex value.value)}}{{else}}track-element{{/if}} {{#if (lt timesIndex value.value)}}subtract{{/if}} {{#if (eq timesIndex value.center)}}center{{/if}}">
             <i class="{{#if (eq timesIndex value.value)}}fas{{else}}far{{/if}} fa-square"></i>
         </span>
     {{/times}}

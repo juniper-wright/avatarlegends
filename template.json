@@ -22,7 +22,8 @@
       "balance": {
         "value": 3,
         "min": 0,
-        "max": 7
+        "max": 7,
+        "center": 3
       },
       "experience": {
         "value": 0,
