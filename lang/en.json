@@ -11,6 +11,14 @@
   "SIMPLE.Approach": "Approach",
   "SIMPLE.Playbook": "Playbook",
   "SIMPLE.Training": "Training",
+  "SIMPLE.FightingStyle": "Fighting Style",
+  "SIMPLE.Demeanor": "Demeanor",
+
+  "SIMPLE.Mastery": "Mastery",
+  "SIMPLE.basic": "Basic",
+  "SIMPLE.learned": "Learned",
+  "SIMPLE.practiced": "Practiced",
+  "SIMPLE.mastered": "Mastered",
 
   "SIMPLE.Add": "Add",
   "SIMPLE.NewItem": "New Item",
@@ -46,10 +54,6 @@
   "SIMPLE.earthbending": "Earthbending",
   "SIMPLE.airbending": "Airbending",
   "SIMPLE.firebending": "Firebending",
-  "SIMPLE.water": "Water",
-  "SIMPLE.earth": "Earth",
-  "SIMPLE.air": "Air",
-  "SIMPLE.fire": "Fire",
   "SIMPLE.weapons": "Weapons",
   "SIMPLE.technology": "Technology"
 }

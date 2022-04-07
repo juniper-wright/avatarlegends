@@ -33,6 +33,7 @@ export class SimpleItemSheet extends ItemSheet {
     context.statistics = ["creativity", "focus", "harmony", "passion"];
     context.approaches = ["d&m", "a&a", "e&o"];
     context.trainings = ["waterbending", "airbending", "earthbending", "firebending", "weapons", "technology"];
+    context.masterys = ["basic", "learned", "practiced", "mastered"];
 
     // This is the object that determines the namespace
     // seen by the HTML templates.

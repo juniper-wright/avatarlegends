@@ -87,20 +87,24 @@
     {{!-- Demeanor, Training, Fighting Style --}}
     <section class="sheet-body details">
         <div class="flexrow">
-            <b>Training:</b>
+            <b>{{localize "SIMPLE.Training"}}</b>
             <div style="flex: 3">
-                {{#each trainings}}
-                <input type="radio" name="data.training" value="{{this}}" id="training-{{this}}" {{#if (eq ../actor.training this)}}checked{{/if}} />
-                <label for="training-{{this}}">{{localize (concat "SIMPLE." this)}}</label>
-                {{/each}}
+                <select class="select-statistic" name="data.training" data-type="String">
+                    {{#select actor.training}}
+                    {{#each trainings as |training|}}
+                    <option value="{{training}}">{{localize (concat "SIMPLE." training)}}</option>
+                    {{/each}}
+                    <option value="">({{localize "SIMPLE.None"}})</option>
+                    {{/select}}
+                </select>
             </div>
         </div>
         <div class="flexrow">
-            <b>Fighting Style:</b>
+            <b>{{localize "SIMPLE.FightingStyle"}}</b>
             <input style="flex: 3" type="text" name="data.fightingStyle" value="{{actor.fightingStyle}}" />
         </div>
         <div class="flexrow">
-            <b>Demeanor:</b>
+            <b>{{localize "SIMPLE.Demeanor"}}</b>
             <input style="flex: 3" type="text" name="data.demeanor" value="{{actor.demeanor}}" />
         </div>
     </section>
@@ -183,7 +187,7 @@
                         <ol class="item-list">
                             {{#each (lookup ../actor.techniques id)}}
                             <li class="item flexrow" data-item-id="{{this._id}}">
-                                <img src="{{this.img}}" title="{{this.name}}" width="24" height="24"/>
+                                <img class="mastery" src="/systems/avatarlegends/images/ui/{{firstLetter this.data.mastery}}.png" title="{{this.name}}" width="24" height="24"/>
                                 <h4 class="item-name">
                                     {{this.name}}
                                     {{#each (split this.data.tags " ") as |tag|}}

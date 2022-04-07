@@ -20,10 +20,6 @@
             {{/if}}
             {{#if isTechnique}}
                 <div class="flexrow gaprow" style="line-height: 22px;">
-                    <label>{{localize "SIMPLE.Playbook"}}</label>
-                    <input style="flex: 2" type="text" name="data.playbook" value="{{systemData.playbook}}" data-dtype="String" />
-                </div>
-                <div class="flexrow gaprow" style="line-height: 22px;">
                     <label>{{localize "SIMPLE.Approach"}}</label>
                     <select style="flex: 2" class="select-statistic" name="data.approach" data-type="String">
                         {{#select systemData.approach}}
@@ -33,6 +29,24 @@
                         {{/select}}
                     </select>
                 </div>
+                <div class="flexrow gaprow" style="line-height: : 22px;">
+                    <label>{{localize "SIMPLE.Mastery"}}</label>
+                    <select style="flex: 2" class="select-statistic" name="data.mastery" data-type="String">
+                        {{#select systemData.mastery}}
+                        {{#each masterys as |mastery|}}
+                        <option value="{{mastery}}">{{localize (concat "SIMPLE." mastery)}}</option>
+                        {{/each}}
+                        <option value="">({{localize "SIMPLE.None"}})</option>
+                        {{/select}}
+                    </select>
+                </div>
+                {{#unless (eq systemData.mastery "basic")}}
+                <div class="flexrow gaprow" style="line-height: 22px;">
+                    <label>{{localize "SIMPLE.Playbook"}}</label>
+                    <input style="flex: 2" type="text" name="data.playbook" value="{{systemData.playbook}}" data-dtype="String" />
+                </div>
+                {{/unless}}
+                {{#unless (eq systemData.mastery "basic")}}
                 <div class="flexrow gaprow" style="line-height: 22px;">
                     <label>{{localize "SIMPLE.Training"}}</label>
                     <select style="flex: 2" class="select-statistic" name="data.training" data-type="String">
@@ -44,6 +58,7 @@
                         {{/select}}
                     </select>
                 </div>
+                {{/unless}}
             {{/if}}
         </div>
     </header>

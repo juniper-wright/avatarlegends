@@ -158,10 +158,14 @@
 .gaprow {
   margin: 3px 0px;
 }
+.avatarlegends .item-list .item img.mastery {
+  background-color: transparent;
+  border-width: 0px;
+}
 .avatarlegends .sheet-body.details div.flexrow {
   padding: 5px 10px;
   height: 32px;
-  line-height: 22px;
+  line-height: 27px;
 }
 .avatarlegends .sheet-body.details div.flexrow > div {
   margin-right: 5px;
