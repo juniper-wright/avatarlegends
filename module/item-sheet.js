@@ -2,7 +2,7 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class SimpleItemSheet extends ItemSheet {
+export class AvatarLegendsItemSheet extends ItemSheet {
 
   /** @inheritdoc */
   static get defaultOptions() {

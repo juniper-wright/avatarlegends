@@ -6,9 +6,9 @@
  */
 
 // Import Modules
-import { SimpleActor } from "./actor.js";
-import { SimpleItemSheet } from "./item-sheet.js";
-import { SimpleActorSheet } from "./actor-sheet.js";
+import { AvatarLegendsActor } from "./actor.js";
+import { AvatarLegendsItemSheet } from "./item-sheet.js";
+import { AvatarLegendsActorSheet } from "./actor-sheet.js";
 import { SummaryActorSheet } from "./summary-actor-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 
@@ -28,11 +28,11 @@ Hooks.once("init", async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.documentClass = SimpleActor;
+  CONFIG.Actor.documentClass = AvatarLegendsActor;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("avatarlegends", SimpleActorSheet, {
+  Actors.registerSheet("avatarlegends", AvatarLegendsActorSheet, {
     types: ["companion", "minorNPC", "majorNPC", "masterNPC", "legendNPC"],
     makeDefault: true
   });
@@ -41,7 +41,7 @@ Hooks.once("init", async function() {
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("avatarlegends", SimpleItemSheet, {
+  Items.registerSheet("avatarlegends", AvatarLegendsItemSheet, {
     types: ["technique", "move", "condition", "status"],
     makeDefault: true
   });
