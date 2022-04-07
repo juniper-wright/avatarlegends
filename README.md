@@ -27,7 +27,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 ## Changes I'd like to make:
 
 * v1.0.0 Planned Changes:
-    * General code quality improvements; clean up code cruft
     * Character sheet needs to be way less ugly
 * Post-v1.0.0 Changes:
     * Add a way to roll with an NPC's principle
