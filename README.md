@@ -27,7 +27,6 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 ## Changes I'd like to make:
 
 * v1.0.0 Planned Changes:
-    * Techniques should have fields for playbook, training type, approach, learned level
     * General code quality improvements; clean up code cruft
         * Actually use the .less file
     * Character sheet needs to be way less ugly

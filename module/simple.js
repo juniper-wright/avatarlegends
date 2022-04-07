@@ -110,14 +110,6 @@ Hooks.once("init", async function() {
   });
 
   /**
-   * Returns the first letter of a string
-   */
-  Handlebars.registerHelper('firstLetter', function(str) {
-    console.log('STRING?', str);
-    return str?.[0];
-  });
-
-  /**
    * Splits a string using the provided separator string.
    */
   Handlebars.registerHelper('split', function(str, sep) {
