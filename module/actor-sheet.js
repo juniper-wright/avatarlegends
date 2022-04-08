@@ -34,7 +34,7 @@ export class AvatarLegendsActorSheet extends ActorSheet {
     const context = super.getData();
     context.actor = context.data.data;
     context.isCompanion = this.actor.data.type === "companion";
-    context.trainings = ["waterbending", "airbending", "earthbending", "firebending", "weapons", "technology"];
+    context.trainings = ["waterbending", "earthbending", "firebending", "airbending", "weapons", "technology"];
 
     this._preparePrinciples(context);
     this._prepareItems(context);

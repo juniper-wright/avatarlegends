@@ -7,7 +7,6 @@
 
 // Import Modules
 import { AvatarLegendsActor } from "./actor.js";
-import { AvatarLegendsItem } from "./item.js";
 import { AvatarLegendsItemSheet } from "./item-sheet.js";
 import { AvatarLegendsActorSheet } from "./actor-sheet.js";
 import { SummaryActorSheet } from "./summary-actor-sheet.js";
@@ -30,7 +29,6 @@ Hooks.once("init", async function() {
 
   // Define custom Entity classes
   CONFIG.Actor.documentClass = AvatarLegendsActor;
-  CONFIG.Item.documentClass = AvatarLegendsItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
