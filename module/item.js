@@ -7,7 +7,10 @@ export class AvatarLegendsItem extends Item {
   /** @override */
   constructor(data) {
     super(data);
-    this.update({ img: this._getImgByType(data.type) });
+    // Only do this once so it doesn't overwrite all images when the server boots
+    if (!data.data.updatedImg) {
+      this.update({ img: this._getImgByType(data.type), data: { updatedImg: true }});
+    }
   }
 
   _getImgByType(type) {
