@@ -7,7 +7,7 @@
             </h1>
             {{#if isMove}}
                 <div class="resource">
-                    <label>{{localize "SIMPLE.Statistic"}}</label>
+                    <h3>{{localize "SIMPLE.Statistic"}}</h3>
                     <select class="select-statistic" name="data.statistic" data-type="String">
                         {{#select systemData.statistic}}
                         {{#each statistics as |statistic|}}
@@ -20,7 +20,7 @@
             {{/if}}
             {{#if isTechnique}}
                 <div class="flexrow gaprow" style="line-height: 22px;">
-                    <label>{{localize "SIMPLE.Approach"}}</label>
+                    <h3>{{localize "SIMPLE.Approach"}}</h3>
                     <select style="flex: 2" class="select-statistic" name="data.approach" data-type="String">
                         {{#select systemData.approach}}
                         {{#each approaches as |approach|}}
@@ -30,7 +30,7 @@
                     </select>
                 </div>
                 <div class="flexrow gaprow" style="line-height: : 22px;">
-                    <label>{{localize "SIMPLE.Mastery"}}</label>
+                    <h3>{{localize "SIMPLE.Mastery"}}</h3>
                     <select style="flex: 2" class="select-statistic" name="data.mastery" data-type="String">
                         {{#select systemData.mastery}}
                         {{#each masteries as |mastery|}}
@@ -42,13 +42,13 @@
                 </div>
                 {{#unless (eq systemData.mastery "basic")}}
                 <div class="flexrow gaprow" style="line-height: 22px;">
-                    <label>{{localize "SIMPLE.Playbook"}}</label>
+                    <h3>{{localize "SIMPLE.Playbook"}}</h3>
                     <input style="flex: 2" type="text" name="data.playbook" value="{{systemData.playbook}}" data-dtype="String" />
                 </div>
                 {{/unless}}
                 {{#unless (eq systemData.mastery "basic")}}
                 <div class="flexrow gaprow" style="line-height: 22px;">
-                    <label>{{localize "SIMPLE.Training"}}</label>
+                    <h3>{{localize "SIMPLE.Training"}}</h3>
                     <select style="flex: 2" class="select-statistic" name="data.training" data-type="String">
                         {{#select systemData.training}}
                         {{#each trainings as |training|}}
@@ -68,7 +68,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">
-            {{localize "SIMPLE.Description"}}
+            <h3>{{localize "SIMPLE.Description"}}</h3>
         </a>
     </nav>
 

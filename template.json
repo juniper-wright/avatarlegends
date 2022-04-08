@@ -177,7 +177,7 @@
     }
   },
   "Item": {
-    "types": ["technique", "condition", "move", "condition", "status"],
+    "types": ["technique", "move", "status"],
     "templates": {
       "common": {
         "description": ""
@@ -193,9 +193,6 @@
     "move": {
       "templates": ["common"],
       "statistic": ""
-    },
-    "condition": {
-      "templates": ["common"]
     },
     "status": {
       "templates": ["common"]

@@ -16,7 +16,7 @@
                 {{!-- TODO: Is the order stable? --}}
                 {{#each actor.statistics as |statistic id|}}
                 <div class="statistic">
-                    <label><a class="rollable" data-statistic="{{id}}">{{localize (concat "SIMPLE." id)}}</a></label>
+                    <h3><a class="rollable" data-statistic="{{id}}">{{localize (concat "SIMPLE." id)}}</a></h3>
                     <input
                       type="text"
                       name="data.statistics.{{id}}.value"
@@ -39,7 +39,7 @@
     {{!-- Companion Status --}}
     <section class="companion-status flexrow">
         <div style="flex: 2">
-            <label class="header">{{localize "SIMPLE.Fatigue"}}</label>
+            <h3 class="header">{{localize "SIMPLE.Fatigue"}}</h3>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
                     valueName="fatigue" value=actor.fatigue}}
@@ -47,7 +47,7 @@
         </div>
         {{#if isCompanion}}
         <div style="flex: 7" class="center">
-            <label class="header">{{localize "SIMPLE.Balance"}}</label>
+            <h3 class="header">{{localize "SIMPLE.Balance"}}</h3>
             <div>
                 {{#if owner}}
                 <button class="rollable balanceButton" data-principle="Yin">{{actor.principleYinFormatted}}</button>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div style="flex: 2">
-            <label class="header">{{localize "SIMPLE.Growth"}}</label>
+            <h3 class="header">{{localize "SIMPLE.Growth"}}</h3>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
                     valueName="experience" value=actor.experience}}
@@ -70,7 +70,7 @@
         </div>
         {{else}}
         <div>
-            <label class="header">{{localize "SIMPLE.Balance"}}</label>
+            <h3 class="header">{{localize "SIMPLE.Balance"}}</h3>
             <div>
                 {{> "systems/avatarlegends/templates/parts/track.html"
                     valueName="balance" value=actor.balance}}
@@ -86,7 +86,7 @@
     {{!-- Demeanor, Training, Fighting Style --}}
     <section class="sheet-body details">
         <div class="flexrow">
-            <b>{{localize "SIMPLE.Training"}}</b>
+            <h3>{{localize "SIMPLE.Training"}}</h3>
             <div style="flex: 3">
                 <select class="select-statistic" name="data.training" data-type="String">
                     {{#select actor.training}}
@@ -99,11 +99,11 @@
             </div>
         </div>
         <div class="flexrow">
-            <b>{{localize "SIMPLE.FightingStyle"}}</b>
+            <h3>{{localize "SIMPLE.FightingStyle"}}</h3>
             <input style="flex: 3" type="text" name="data.fightingStyle" value="{{actor.fightingStyle}}" />
         </div>
         <div class="flexrow">
-            <b>{{localize "SIMPLE.Demeanor"}}</b>
+            <h3>{{localize "SIMPLE.Demeanor"}}</h3>
             <input style="flex: 3" type="text" name="data.demeanor" value="{{actor.demeanor}}" />
         </div>
     </section>
@@ -116,15 +116,15 @@
             <nav class="sheet-tabs tabs tab-nav-left" data-group="left">
                 {{#if isCompanion}}
                 <a class="item" data-tab="moves" primary="true">
-                    {{localize "SIMPLE.Moves"}}
+                    <h3>{{localize "SIMPLE.Moves"}}</h3>
                 </a>
                 {{/if}}
                 <a class="item" data-tab="techniques">
-                    {{localize "SIMPLE.Techniques"}}
+                    <h3>{{localize "SIMPLE.Techniques"}}</h3>
                 </a>
                 {{#if isCompanion}}
                 <a class="item" data-tab="background">
-                    {{localize "SIMPLE.Background"}}
+                    <h3>{{localize "SIMPLE.Background"}}</h3>
                 </a>
                 {{/if}}
             </nav>
@@ -220,14 +220,14 @@
             <nav class="sheet-tabs tabs tab-nav-right" data-group="right">
                 {{#if isCompanion}}
                 <a class="item" data-tab="condition" primary="true">
-                    {{localize "SIMPLE.Conditions"}}
+                    <h3>{{localize "SIMPLE.Conditions"}}</h3>
                 </a>
                 {{/if}}
                 <a class="item" data-tab="holds">
-                    {{localize "SIMPLE.BonusesAndHolds"}}
+                    <h3>{{localize "SIMPLE.BonusesAndHolds"}}</h3>
                 </a>
                 <a class="item" data-tab="notes">
-                    {{localize "SIMPLE.Notes"}}
+                    <h3>{{localize "SIMPLE.Notes"}}</h3>
                 </a>
             </nav>
 

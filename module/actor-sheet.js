@@ -267,7 +267,6 @@ export class AvatarLegendsActorSheet extends ActorSheet {
         Moves: { type: "move", img: DEFAULT_MOVE_ICON },
         Techniques: { type: "technique", img: DEFAULT_TECHNIQUE_ICON },
         Statuses: { type: "status", img: DEFAULT_STATUS_ICON },
-        Conditions: { type: "condition", img: DEFAULT_CONDITION_ICON },
       }[headerType];
 
       const itemData = {

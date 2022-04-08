@@ -16,7 +16,7 @@ There are two ways to install this package:
     * Download the associated zip file
     * Unzip that file into your Foundry VTT instance's `/Data/systems` directory
 
-If the version you installed is prior to v1.0.0, update at your own risk; much of the Actor functionality is in flux.
+If you installed a version prior to v1.0.0, update at your own risk; much of the Actor and Item functionality was in flux up until that version.
 
 ## Overview
 
@@ -26,18 +26,13 @@ Forked from the [Monster of the Week System](https://gitlab.com/3cell/monsterwee
 
 ## Changes I'd like to make:
 
-* v1.0.0 Planned Changes:
-    * Character sheet needs to be way less ugly
-* Post-v1.0.0 Changes:
-    * Add a way to roll with an NPC's principle
-    * Have moves' miss/weakhit/stronghit rules show up in chat
-    * A way to track, interact with, or include playbook features
-    * Add a "taken out" indicator if fatigue and conditions are maxed
-    * Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
-    * Moves should have fields for basic/balance/playbook/game-system, which playbook it belongs to if playbook
+* Add a way to roll with an NPC's principle
+* Have moves' miss/weakhit/stronghit rules show up in chat
+* A way to track, interact with, or include playbook features
+* Add a "taken out" indicator if fatigue and conditions are maxed
+* Actual fields for forward/ongoing (with scope levels: all, stat, move, etc)
+* Moves should have fields for basic/balance/playbook/game-system, which playbook it belongs to if playbook
 
 ## Versioning:
 
-* Prior to v1.0.0, under semver, patch versions will be bugfixes and tweaks, and minor versions will be new features that may break functionality. All of these versions will be tagged -alpha.
-* v1.0.0 will be released when I feel like this system exhaustively allows you to play **AL:TRPG**. I will likely go through an internal alpha, a public beta, then a full release.
-* After v1.0.0, I will follow semver (major version for breaking changes, minor version for new features, patch version for bugfixes).
+* This package uses [semver](https://semver.org/).

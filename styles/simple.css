@@ -1,13 +1,33 @@
+@font-face {
+  font-family: "Komikazoom";
+  src: url(fonts/KAMIKZOM.ttf);
+}
 .avatarlegends {
   /* Sheet Tabs */
   /* Items List */
   /* Chips */
+}
+.avatarlegends.sheet.actor {
+  min-width: 560px;
+  min-height: 600px;
+  max-width: 1263px;
+  max-height: 1656px;
+}
+.avatarlegends.sheet.item {
+  min-width: 460px;
+  min-height: 400px;
+}
+.avatarlegends h3 {
+  font-size: 18px;
+  margin-bottom: 0px;
+  font-family: "Komikazoom";
 }
 .avatarlegends .window-content {
   height: 100%;
   padding: 5px;
   overflow-y: hidden;
   background: url("/systems/avatarlegends/images/ui/paper-512.jpg") repeat;
+  background-position: center;
 }
 .avatarlegends .sheet-header {
   overflow: hidden;
@@ -23,6 +43,7 @@
   margin-right: 10px;
   object-fit: cover;
   object-position: 50% 0;
+  border-radius: 5px;
 }
 .avatarlegends .sheet-header .header-fields {
   flex: 1;
@@ -37,6 +58,7 @@
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "Komikazoom";
 }
 .avatarlegends .sheet-header h1.charname input.half-input {
   width: 49%;
@@ -192,8 +214,7 @@
   font-weight: bold;
 }
 .avatarlegends .tabs .item.active {
-  text-decoration: underline;
-  text-shadow: none;
+  text-shadow: 0 0 10px blue;
 }
 .avatarlegends .tab-content {
   overflow: hidden;
@@ -221,18 +242,15 @@
   margin: 2px 0;
   padding: 0;
   align-items: center;
+  border-radius: 5px;
   background: rgba(0, 0, 0, 0.05);
   border: 2px groove #eeede0;
   font-weight: bold;
   line-height: 24px;
 }
 .avatarlegends .inventory-list .inventory-header h3 {
-  margin: 0 -5px 0 0;
   padding-left: 5px;
   color: #191813;
-  font-size: 20px;
-  font-weight: 700;
-  font-size: 16px;
 }
 .avatarlegends .inventory-list .item-controls {
   flex: 0 0 18px;
@@ -304,12 +322,4 @@
   border: 1px solid #999;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.05);
-}
-.avatarlegends.sheet.actor {
-  min-width: 560px;
-  min-height: 420px;
-}
-.avatarlegends.sheet.item {
-  min-width: 460px;
-  min-height: 400px;
 }
