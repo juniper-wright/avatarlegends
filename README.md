@@ -12,7 +12,7 @@ There are two ways to install this package:
     * Paste this repo's manifest url in the "Manifest URL" field: `https://raw.githubusercontent.com/juniper-wright/avatarlegends/main/system.json`
     * Click "Install"!
 * As a zip file:
-    * Choose a specific [release](https://github.com/ian-mcdevitt/avatarlegends/releases) from the repository
+    * Choose a specific [release](https://github.com/juniper-wright/avatarlegends/releases) from the repository
     * Download the associated zip file
     * Unzip that file into your Foundry VTT instance's `/Data/systems` directory
 
