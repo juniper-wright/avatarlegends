@@ -9,7 +9,7 @@ There are two ways to install this package:
 * From your Foundry VTT instance's config panel:
     * Navigate to "Game Systems"
     * Click "Install System"
-    * Paste this repo's manifest url in the "Manifest URL" field: `https://raw.githubusercontent.com/ian-mcdevitt/avatarlegends/main/system.json`
+    * Paste this repo's manifest url in the "Manifest URL" field: `https://raw.githubusercontent.com/juniper-wright/avatarlegends/main/system.json`
     * Click "Install"!
 * As a zip file:
     * Choose a specific [release](https://github.com/ian-mcdevitt/avatarlegends/releases) from the repository
